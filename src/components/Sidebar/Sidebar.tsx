@@ -65,21 +65,6 @@ export default function Sidebar() {
                 { getSection('dungeon') }
                 { getSection('trial') }
                 { getSection('raid') }
-                { getSection('dungeon') }
-                { getSection('trial') }
-                { getSection('raid') }
-                { getSection('dungeon') }
-                { getSection('trial') }
-                { getSection('raid') }
-                { getSection('dungeon') }
-                { getSection('trial') }
-                { getSection('raid') }
-                { getSection('dungeon') }
-                { getSection('trial') }
-                { getSection('raid') }
-                { getSection('dungeon') }
-                { getSection('trial') }
-                { getSection('raid') }
 
                 { filteredPosts.length == 0 && <h2 className={ styles.listHeader }>No results</h2> }
             </div>
