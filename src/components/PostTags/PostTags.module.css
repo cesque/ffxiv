@@ -42,13 +42,13 @@
     }
 
     &.tag--raid {
-        --color: var(--color-green-400);
-        --background: var(--color-green-100);
+        --color: var(--color-red-400);
+        --background: var(--color-red-100);
     }
 
     &.tag--trial {
-        --color: var(--color-purple-400);
-        --background: var(--color-purple-100);
+        --color: var(--color-orange-400);
+        --background: var(--color-orange-100);
     }
 }
 

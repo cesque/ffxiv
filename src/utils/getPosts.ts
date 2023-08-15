@@ -2,7 +2,7 @@ import { PostMeta } from '@/types/PostMeta'
 import { promises as fs } from 'fs'
 import path from 'path'
 
-interface Post {
+export interface Post {
     slug: string,
     meta: PostMeta,
     info: {
@@ -52,7 +52,7 @@ export default async function getPosts() {
     let categories: string[] = []
     for(let post of posts) {
         if(post.meta.belongsTo) {
-            categories.push(...post.meta.belongsTo)
+            categories.push(...post.meta.belongsTo.map((belongs: any) => belongs.name))
         }
     }
     categories = Array.from(new Set(categories))

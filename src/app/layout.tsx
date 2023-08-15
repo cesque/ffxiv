@@ -5,6 +5,8 @@ import styles from './layout.module.css'
 
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import classNames from 'classnames'
+import getPosts from '@/utils/getPosts'
+import { PostsProvider } from '@/components/PostsContext/PostsContext'
 
 const display = DM_Serif_Display({
     weight: '400',
@@ -28,7 +30,9 @@ interface Props {
     children: React.ReactNode
 }
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
+    let { posts, categories } = await getPosts()
+
     let gradients = [
         ['purple', 'blue'],
         ['purple', 'red'],
@@ -54,11 +58,13 @@ export default function RootLayout({ children }: Props) {
     return <html lang="en">
         <body className={ classNames(display.variable, body.variable) }>
             <div className={ styles.layout }>
-                <Sidebar />
-                <div className={ styles.content }>
-                    <div className={ styles.padder } style={ colors } />
-                    { children }
-                </div>
+                <PostsProvider posts={ posts } categories={ categories }>
+                    <Sidebar />
+                    <div className={ styles.content }>
+                        <div className={ styles.padder } style={ colors } />
+                        { children }
+                    </div>
+                </PostsProvider>
             </div>
         </body>
     </html>

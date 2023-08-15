@@ -9,7 +9,6 @@ interface Props {
 }
 
 export default function Ol({ children }: Props) {
-    console.log(listStyles, styles)
     return <ol className={ classNames(listStyles.list, styles.list) }>
         { children }
     </ol>
