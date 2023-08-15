@@ -1,0 +1,56 @@
+import PlusIcon from '@/icons/plus.svg'
+import MinusIcon from '@/icons/minus.svg'
+
+export const meta = {
+    title: 'Alexander - The Arm of the Father',
+    type: 'raid',
+    difficulty: 'normal',
+    belongsTo: [
+        { name: 'alexander', entry: 3 },
+        { name: 'alexander - gordias', entry: 3 }
+    ]
+}
+
+<OnlyTank>
+    ## Hand Phase
+
+    <Trigger type="on" trigger="Hand splits into 2">
+        Off Tank picks up 2nd hand
+
+        Face hands away from each other
+    </Trigger>
+</OnlyTank>
+
+## Tornado Phase
+
+<Trigger type="on" trigger="Yellow tether from tornado">
+    <Trigger type="if" trigger="Tethered" color="gold">
+        Stand still
+    </Trigger>
+
+    <OnlyTank>
+        <Trigger type="if" trigger="Tank" color="blue">
+            Intercept tether
+        </Trigger>
+    </OnlyTank>
+</Trigger>
+
+<Trigger type="on" trigger={ <>Marked with <PlusIcon/> plus or <MinusIcon /> minus icon</> }>
+    **Mnemonic**: reverse magnet
+
+    <Trigger type="if" trigger="Same symbol as ally" color="green">
+        Stand close to ally and center
+    </Trigger>
+
+    <Trigger type="if" trigger="Different symbol to ally" color="red">
+        Stand far away from ally
+    </Trigger>
+</Trigger>
+
+<OnlyTank>
+    ## Final Human Phase
+
+    <Trigger type="on" trigger="4/5 stacks">
+        Tank swap
+    </Trigger>
+</OnlyTank>
