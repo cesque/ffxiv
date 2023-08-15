@@ -1,0 +1,18 @@
+.missingIndicator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    gap: var(--spacing-small);
+    font-size: 0.8rem;
+    color: var(--color-black-200);
+}
+
+.missingIndicator::before,
+.missingIndicator::after {
+    content: '';
+    display: block;
+    flex-grow: 1;
+    border-bottom: 2px dotted var(--color-black-100);
+}
+

@@ -7,6 +7,7 @@ import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import classNames from 'classnames'
 import getPosts from '@/utils/getPosts'
 import { PostsProvider } from '@/components/PostsContext/PostsContext'
+import { HideContextProvider } from '@/components/HideContentContext/HideContentContext'
 
 const display = DM_Serif_Display({
     weight: '400',
@@ -58,13 +59,15 @@ export default async function RootLayout({ children }: Props) {
     return <html lang="en">
         <body className={ classNames(display.variable, body.variable) }>
             <div className={ styles.layout }>
-                <PostsProvider posts={ posts } categories={ categories }>
-                    <Sidebar />
-                    <div className={ styles.content }>
-                        <div className={ styles.padder } style={ colors } />
-                        { children }
-                    </div>
-                </PostsProvider>
+                <HideContextProvider>
+                    <PostsProvider posts={ posts } categories={ categories }>
+                        <Sidebar />
+                        <div className={ styles.content }>
+                            <div className={ styles.padder } style={ colors } />
+                            { children }
+                        </div>
+                    </PostsProvider>
+                </HideContextProvider>
             </div>
         </body>
     </html>

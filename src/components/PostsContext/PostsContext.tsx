@@ -61,7 +61,7 @@ export function PostsProvider({ posts, categories, children }: Props) {
         if(search.trim().length == 0) return filteredByTypeAndDifficulty
         
         if(categories.includes(search)) {
-            let postsInCategory = filteredByTypeAndDifficulty.filter(post => post.meta.belongsTo?.some(belongs => belongs.name == search));
+            let postsInCategory = filteredByTypeAndDifficulty.filter(post => post.meta.belongsTo?.some(belongs => belongs.name == search))
             
             postsInCategory.sort((a, b) => {
                 let aBelongs = a.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY

@@ -12,6 +12,12 @@ import ColorText, { Purple, Green, Blue, Gold, Orange, Red, Black } from '@/comp
 import Consequence from '@/components/Consequence/Consequence'
 import Ol from '@/markdownComponents/Lists/Ol/Ol'
 import Ul from '@/markdownComponents/Lists/Ul/Ul'
+import {
+    OnlyRoles, AllExceptRoles,
+    OnlyTank, AllExceptTank,
+    OnlyDPS, AllExceptDPS,
+    OnlyHealer, AllExceptHealer
+} from '@/components/Roles/Roles'
 
 import Post from '@/components/Post/Post'
 
@@ -52,6 +58,14 @@ export default async function PostPage({ params: { slug }, searchParams }: Props
         Alert,
         Trigger,
         Consequence,
+        OnlyRoles,
+        AllExceptRoles,
+        OnlyTank,
+        AllExceptTank,
+        OnlyDPS,
+        AllExceptDPS,
+        OnlyHealer,
+        AllExceptHealer,
 
         ColorText,
         Purple,

@@ -1,3 +1,16 @@
 .consequence {
-    
+
+}
+
+.missing {
+    /* min-width: 15px;
+    display: inline-block;
+    border-bottom: 2px dotted var(--color-black-200);
+    vertical-align: middle;
+    margin: 0 var(--spacing-xsmall); */
+
+    color: var(--color-black-200);
+    padding: 0 var(--spacing-xsmall);
+    cursor: default;
+    vertical-align: middle;
 }

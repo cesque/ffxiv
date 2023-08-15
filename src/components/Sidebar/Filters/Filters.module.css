@@ -1,0 +1,96 @@
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+    margin-bottom: var(--spacing-large);
+}
+
+.filterCategory {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xsmall);
+}
+
+.filterCategoryHeader {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-small);
+
+    color: var(--color-black-200);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2ch;
+}
+
+.filterCategoryHeaderName {
+
+}
+
+.filterCategoryHeaderReset {
+    border: none;
+    color: var(--color-blue-300);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filterCategoryList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xsmall);
+}
+
+.filter {
+    border: none;
+
+    --dark: var(--color-black-300);
+    --light: var(--color-black-100);
+
+    padding: 0px 8px;
+    background: var(--light);
+    color: var(--dark);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 100vw;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.2s filter ease, 0.2s border-color ease;
+
+    &.filter--hard {
+        --dark: var(--color-blue-400);
+        --light: var(--color-blue-100);
+    }
+
+    &.filter--extreme {
+        --dark: var(--color-green-400);
+        --light: var(--color-green-100);
+    }
+
+    &.filter--savage {
+        --dark: var(--color-purple-400);
+        --light: var(--color-purple-100);
+    }
+
+    &.filter--dungeon {
+        --dark: var(--color-blue-400);
+        --light: var(--color-blue-100);
+    }
+
+    &.filter--raid {
+        --dark: var(--color-red-400);
+        --light: var(--color-red-100);
+    }
+
+    &.filter--trial {
+        --dark: var(--color-orange-400);
+        --light: var(--color-orange-100);
+    }
+
+    &.filterSelected {
+        border: 2px solid var(--dark);
+    }
+}
+
+.filter:hover {
+    filter: brightness(0.95) saturate(1.5);
+}

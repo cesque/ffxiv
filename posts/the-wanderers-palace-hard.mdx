@@ -16,11 +16,13 @@ Totems have a matching colour + effect (randomised each run).
     Run into totem AoEs to figure out effect of each colour
 </Trigger>
 
-<Trigger type="on" trigger="subsequent totem spawns">
-    DPS get **DPS totem**
+<OnlyDPS>
+    <Trigger type="on" trigger="subsequent totem spawns">
+        DPS get **DPS totem**
 
-    Ignore other totems
-</Trigger>
+        Ignore other totems
+    </Trigger>
+</OnlyDPS>
 
 <Trigger type="if" trigger="you become a frog" color="green">
     Get the **frog totem** to unfrog
@@ -34,9 +36,11 @@ Totems have a matching colour + effect (randomised each run).
     **Gaze attack** - look away from boss<Consequence> or gain debuff <Red>**Doom**</Red></Consequence>
 </Trigger>
 
-<Trigger type="on gain debuff" trigger="Doom" color="purple">
-    **Healer**: remove debuff with **Esuna**
-</Trigger>
+<OnlyHealer>
+    <Trigger type="on gain debuff" trigger="Doom" color="purple">
+        **Healer**: remove debuff with **Esuna**
+    </Trigger>
+</OnlyHealer>
 
 <Trigger type="on spawn" trigger="Sacred Idol">
     Kill **Sacred Idol** ASAP

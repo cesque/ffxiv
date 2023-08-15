@@ -1,7 +1,7 @@
 import { H1 } from '@/markdownComponents/Heading/Heading'
 import styles from './Post.module.css'
 import { PostMeta } from '@/types/PostMeta'
-import PostTags from '../PostTags/PostTags';
+import PostTags from '../PostTags/PostTags'
 
 interface Props {
     slug: string,
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Post({ slug, info, meta, children }: Props) {
-    let { title, type, difficulty, belongsTo } = meta;
+    let { title, type, difficulty, belongsTo } = meta
     let tags: string[] = [
         type,
         difficulty,
