@@ -1,0 +1,45 @@
+export const meta = {
+    title: `The Wanderer's Palace - Hard`,
+    type: 'dungeon',
+    difficulty: 'hard',
+}
+
+## Frumious Koheel Ja
+
+Prioritise killing **spears**. <Consequence>They cause a stacking debuff on the party if left alive.</Consequence>
+
+## Slithy Zolool Ja
+
+Totems have a matching colour + effect (randomised each run).
+
+<Trigger type="on" trigger="first totems spawn">
+    Run into totem AoEs to figure out effect of each colour
+</Trigger>
+
+<Trigger type="on" trigger="subsequent totem spawns">
+    DPS get **DPS totem**
+
+    Ignore other totems
+</Trigger>
+
+<Trigger type="if" trigger="you become a frog" color="green">
+    Get the **frog totem** to unfrog
+</Trigger>
+
+## Manxome Molaa Ja Ja
+
+**Tank**: pull boss to edge of arena, and kite him around the edge out of <Purple>**purple circle**</Purple> of **Sacred Standard**.
+
+<Trigger type="on cast" trigger="Soul Douse" color="orange">
+    **Gaze attack** - look away from boss<Consequence> or gain debuff <Red>**Doom**</Red></Consequence>
+</Trigger>
+
+<Trigger type="on gain debuff" trigger="Doom" color="purple">
+    **Healer**: remove debuff with **Esuna**
+</Trigger>
+
+<Trigger type="on spawn" trigger="Sacred Idol">
+    Kill **Sacred Idol** ASAP
+
+    (**Sacred Idol** is the one with tether to the boss)
+</Trigger>

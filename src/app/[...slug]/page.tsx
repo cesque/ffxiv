@@ -1,5 +1,4 @@
 import getPost from '@/utils/getPost'
-import { promises as fs } from 'fs'
 import path from 'path'
 import getPosts from '@/utils/getPosts'
 
@@ -10,10 +9,11 @@ import Pre from '@/markdownComponents/Pre/Pre'
 import Alert from '@/components/Alert/Alert'
 import Trigger from '@/components/Trigger/Trigger'
 import ColorText, { Purple, Green, Blue, Gold, Orange, Red, Black } from '@/components/ColorText/ColorText'
+import Consequence from '@/components/Consequence/Consequence'
+import Ol from '@/markdownComponents/Lists/Ol/Ol'
+import Ul from '@/markdownComponents/Lists/Ul/Ul'
 
 import Post from '@/components/Post/Post'
-
-const dirPath = path.join(process.cwd(), 'posts/')
 
 export async function generateStaticParams() {
     let { posts } = await getPosts()
@@ -46,8 +46,12 @@ export default async function PostPage({ params: { slug }, searchParams }: Props
         code: Code,
         pre: Pre,
 
+        ol: Ol,
+        ul: Ul,
+
         Alert,
         Trigger,
+        Consequence,
 
         ColorText,
         Purple,

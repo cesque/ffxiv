@@ -1,0 +1,26 @@
+.list {
+    list-style-type: none;
+}
+
+.list li {
+    position: relative;
+}
+
+.list li::before {
+    content: '';
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin-right: var(--spacing-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-purple-300);
+    border-radius: 100vw;
+}

@@ -51,10 +51,20 @@
     font-size: 1.2rem;
     display: flex;
     gap: var(--spacing-small);
+    align-items: baseline;
 }
 
 .type {
     font-weight: normal;
+}
+
+.separator {
+    background: var(--light);
+    width: 5px;
+    height: 5px;
+    border-radius: 100vw;
+    align-self: center;
+    transform: translateY(0.1ex);
 }
 
 .triggerText {
@@ -89,7 +99,7 @@
     padding: var(--spacing-small) var(--spacing-medium);
   
     background: var(--background);
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.5;
 
     border: 3px solid var(--light);

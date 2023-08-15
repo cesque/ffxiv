@@ -1,0 +1,57 @@
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xsmall);
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.tag {
+    --color: var(--color-black-300);
+    --background: var(--color-black-100);
+
+    padding: 2px 12px;
+    background: var(--background);
+    color: var(--color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 100vw;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s filter ease;
+
+    &.tag--hard {
+        --color: var(--color-blue-400);
+        --background: var(--color-blue-100);
+    }
+
+    &.tag--extreme {
+        --color: var(--color-green-400);
+        --background: var(--color-green-100);
+    }
+
+    &.tag--savage {
+        --color: var(--color-purple-400);
+        --background: var(--color-purple-100);
+    }
+
+    &.tag--dungeon {
+        --color: var(--color-blue-400);
+        --background: var(--color-blue-100);
+    }
+
+    &.tag--raid {
+        --color: var(--color-green-400);
+        --background: var(--color-green-100);
+    }
+
+    &.tag--trial {
+        --color: var(--color-purple-400);
+        --background: var(--color-purple-100);
+    }
+}
+
+.tag:hover {
+    filter: brightness(0.95) saturate(1.5);
+}
