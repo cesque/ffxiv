@@ -1,0 +1,16 @@
+.container {
+    margin: 0 var(--spacing-medium);
+}
+
+.containerWide {
+    max-width: var(--width-wide);
+}
+
+.containerFull {
+    max-width: none;
+}
+
+.table {
+    table-layout: fixed;
+    border-spacing: var(--spacing-xsmall);
+}

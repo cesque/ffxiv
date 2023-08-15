@@ -1,0 +1,1 @@
+export type DutyType = 'dungeon' | 'trial' | 'raid'

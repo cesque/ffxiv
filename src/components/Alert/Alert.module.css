@@ -1,0 +1,85 @@
+.alert {
+    display: flex;
+    align-items: flex-start;
+    margin: var(--spacing-large) 0;
+    gap: var(--spacing-small);
+
+    &.alert--purple {
+        --color: var(--color-purple-300);
+        --background: var(--color-purple-100);
+    }
+
+    &.alert--green {
+        --color: var(--color-green-300);
+        --background: var(--color-green-100);
+    }
+
+    &.alert--blue {
+        --color: var(--color-blue-300);
+        --background: var(--color-blue-100);
+    }
+
+    &.alert--gold {
+        --color: var(--color-gold-300);
+        --background: var(--color-gold-100);
+    }
+
+    &.alert--orange {
+        --color: var(--color-orange-300);
+        --background: var(--color-orange-100);
+    }
+
+    &.alert--red {
+        --color: var(--color-red-300);
+        --background: var(--color-red-100);
+    }
+
+    &.alert--black {
+        --color: var(--color-black-300);
+        --background: var(--color-black-100);
+    }
+}
+
+.icon {
+    padding: var(--spacing-small);
+    border-radius: var(--spacing-small);
+
+    color: var(--color);
+}
+
+
+.icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.container {
+    border: 3px solid var(--color);
+    border-radius: var(--spacing-small);
+    overflow: hidden;
+}
+
+.title {
+    background: var(--color);
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-weight: bold;
+    color: var(--color-white);
+    font-size: 0.8rem;
+    letter-spacing: 0.1ch;
+}
+
+.content {
+    padding: var(--spacing-medium);
+  
+    background: var(--background);
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.content > :first-child {  
+    margin-top: 0;
+}
+
+.content > :last-child {  
+    margin-bottom: 0;
+}

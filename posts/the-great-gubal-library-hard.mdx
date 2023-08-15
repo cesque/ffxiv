@@ -1,0 +1,66 @@
+import PlusIcon from '@/icons/plus.svg'
+import MinusIcon from '@/icons/minus.svg'
+import SunIcon from '@/icons/sun.svg'
+import MoonIcon from '@/icons/moon.svg'
+
+export const meta = {
+    title: 'The Great Gubal Library - Hard',
+    type: 'dungeon',
+    difficulty: 'hard',
+}
+
+## Liquid Flame
+
+<Trigger type="on" trigger={
+    <>
+        Marked with <PlusIcon/> plus
+        or <MinusIcon /> minus icon
+    </>
+}>
+    **Mnemonic**: reverse magnet
+
+    <Trigger type="if" trigger="Same symbol as boss" color="green">
+        Stand close to boss
+    </Trigger>
+
+    <Trigger type="if" trigger="Different symbol to boss" color="red">
+        Stand far away from boss
+    </Trigger>
+</Trigger>
+
+<Trigger type="on" trigger={
+    <>
+        Marked with <SunIcon/> sun
+        or <MoonIcon /> moon icon
+    </>
+}>
+    Run to corresponding sigil on floor
+</Trigger>
+
+## Strix
+
+<Trigger type="before cast" trigger={
+    <Orange>On Tornados</Orange>
+}>
+    Stand in <ColorText color="black" shade={ 300 }>**dark**</ColorText> circle
+</Trigger>
+
+<Trigger type="before cast" trigger={
+    <Orange>On Quakes</Orange>
+}>
+    Stand in <ColorText color="black" shade={ 200 }>**windy**</ColorText> circle
+</Trigger>
+
+<Trigger type="before cast" trigger={
+    <Orange>On Imps</Orange>
+}>
+    <Trigger type="if" trigger="Turned into imp" color="green">
+        Stand in <ColorText color="green" shade={ 400 }>**green**</ColorText> circle
+    </Trigger>
+</Trigger>
+
+<Trigger color="red" type="before" trigger={
+    <Black>Behemoth's <Red>Meteor</Red> lands</Black>
+}>
+    LOS meteor using rocks dropped by Behemoth's attacks
+</Trigger>

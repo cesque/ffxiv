@@ -1,0 +1,105 @@
+.trigger {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xsmall);
+    margin: var(--spacing-medium) 0;
+
+    &.trigger--purple {
+        --color: var(--color-purple-300);
+        --background: var(--color-purple-100);
+        --light: var(--color-purple-200);
+    }
+
+    &.trigger--green {
+        --color: var(--color-green-300);
+        --background: var(--color-green-100);
+        --light: var(--color-green-200);
+    }
+
+    &.trigger--blue {
+        --color: var(--color-blue-300);
+        --background: var(--color-blue-100);
+        --light: var(--color-blue-200);
+    }
+
+    &.trigger--gold {
+        --color: var(--color-gold-300);
+        --background: var(--color-gold-100);
+        --light: var(--color-gold-200);
+    }
+
+    &.trigger--orange {
+        --color: var(--color-orange-300);
+        --background: var(--color-orange-100);
+        --light: var(--color-orange-200);
+    }
+
+    &.trigger--red {
+        --color: var(--color-red-300);
+        --background: var(--color-red-100);
+        --light: var(--color-red-200);
+    }
+
+    &.trigger--black {
+        --color: var(--color-black-300);
+        --background: var(--color-black-100);
+        --light: var(--color-black-200);
+    }
+}
+
+.header {
+    font-size: 1.2rem;
+    display: flex;
+    gap: var(--spacing-small);
+}
+
+.type {
+    font-weight: normal;
+}
+
+.triggerText {
+    font-weight: bold;
+    color: var(--color);
+}
+
+.type::first-letter,
+.triggerText::first-letter {
+    text-transform: uppercase;
+}
+
+.triggerText svg {
+    vertical-align: baseline;
+    height: 1em;
+    width: 1em;
+}
+
+.container {
+    display: flex;
+    gap: var(--spacing-small);
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    transform: rotate(0.5turn);
+}
+
+.content {
+    /* flex-grow: 1; */
+    padding: var(--spacing-small) var(--spacing-medium);
+  
+    background: var(--background);
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    border: 3px solid var(--light);
+    border-radius: var(--spacing-small);
+}
+
+.content > :first-child {  
+    margin-top: 0;
+}
+
+.content > :last-child {  
+    margin-bottom: 0;
+}
