@@ -1,4 +1,4 @@
-.header {
+.heading {
     font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: bold;
@@ -11,7 +11,7 @@
     gap: var(--spacing-small);
 }
 
-.header:after {
+.heading:after {
     content: '';
 
     height: 4px;
@@ -19,4 +19,9 @@
     border-radius: 100vw;
     flex-grow: 1;
     transform: translateY(-0.3ex);
+}
+
+.heading--3 {
+    margin-top: var(--spacing-medium);
+    font-size: 1.2rem;
 }

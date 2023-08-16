@@ -92,6 +92,7 @@
     width: 30px;
     height: 30px;
     transform: rotate(0.5turn);
+    color: var(--color-black-300);
 }
 
 .content {

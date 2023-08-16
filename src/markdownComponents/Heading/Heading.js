@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import styles from './Heading.module.css'
 
-function Header({ level, className, children }) {
-    let classes = classNames(styles.header, styles[`header--${ level }`], className);
+function Heading({ level, className, children }) {
+    let classes = classNames(styles.heading, styles[`heading--${ level }`], className);
 
     switch(+level) {
         case 1: return <h1 className={ classes }>{ children }</h1>
@@ -11,13 +11,13 @@ function Header({ level, className, children }) {
         case 4: return <h4 className={ classes }>{ children }</h4>
         case 5: return <h5 className={ classes }>{ children }</h5>
         case 6: return <h6 className={ classes }>{ children }</h6>
-        default: throw 'unrecognised header level ' + level
+        default: throw 'unrecognised heading level ' + level
     }
 }
 
-export let H1 = props => <Header level="1" { ...props } />
-export let H2 = props => <Header level="2" { ...props } />
-export let H3 = props => <Header level="3" { ...props } />
-export let H4 = props => <Header level="4" { ...props } />
-export let H5 = props => <Header level="5" { ...props } />
-export let H6 = props => <Header level="6" { ...props } />
+export let H1 = props => <Heading level={ 1 } { ...props } />
+export let H2 = props => <Heading level={ 2 } { ...props } />
+export let H3 = props => <Heading level={ 3 } { ...props } />
+export let H4 = props => <Heading level={ 4 } { ...props } />
+export let H5 = props => <Heading level={ 5 } { ...props } />
+export let H6 = props => <Heading level={ 6 } { ...props } />

@@ -4,7 +4,7 @@ import styles from './Settings.module.css'
 
 import { ChangeEvent, useContext } from 'react'
 import { HideContentContext } from '@/components/HideContentContext/HideContentContext'
-import { Role, Roles } from '@/types/Role'
+import { Role, Roles, getRoleString } from '@/types/Role'
 
 export default function Settings() {
     let { showConsequences, setShowConsequences, role, setRole } = useContext(HideContentContext)
@@ -32,7 +32,7 @@ export default function Settings() {
             <select className={ styles.roleSelect } id="role-select" onChange={ handleRoleChange }>
                 <option value="all">All</option>
                 { Roles.map((role: Role) => {
-                    return <option value={ role }>{ role }</option>
+                    return <option value={ role }>{ getRoleString(role) }</option>
                 })}
             </select>
         </div>

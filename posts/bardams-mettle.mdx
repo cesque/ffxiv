@@ -1,0 +1,49 @@
+export const meta = {
+    title: `Bardam's Mettle`,
+    type: 'dungeon',
+    difficulty: 'normal',
+}
+
+## Bardam
+
+Non-combat - no attacking, just successfully dodge the mechanics
+
+### Phase 1
+
+<Trigger color="orange" type="on cast" trigger="Travail">
+    Stand at edge of first AoE, then walk towards centre to dodge second AoE
+</Trigger>
+
+<Trigger color="blue" type="on cast" trigger="Spear charge">
+    Dodge checkerboard attacks by walking diagonally between two empty squares
+</Trigger>
+
+<Trigger color="red" type="on cast" trigger="Empty Gaze">
+    Face away from the boss
+
+    Will be cast during the above two abilities, but you can dodge those by walking backwards anyway
+</Trigger>
+
+### Phase 2
+
+When the boss casts **Travail (firestorm)**, AoEs will spawn following players, but these are easy enough to avoid
+
+<Trigger type="on cast" trigger="Heavy strike">
+    Stand behind boss, in the non-indicated quarter
+</Trigger>
+
+<Trigger type="on cast" trigger="Star fall">
+    Stand either in centre or somewhere on outer edge
+</Trigger>
+
+### Phase 3
+
+<Trigger color="red" type="before" trigger="Meteor falls">
+    Stand behind the final star shard (either north or south will still be available)
+</Trigger>
+
+## Yol
+
+<Trigger type="on cast" trigger="Eye of the Fierce">
+    Face away from boss (gaze attack)
+</Trigger>

@@ -9,8 +9,15 @@
     vertical-align: middle;
     margin: 0 var(--spacing-xsmall); */
 
-    color: var(--color-black-200);
+    color: var(--color-red-400);
+    opacity: 0.3;
     padding: 0 var(--spacing-xsmall);
-    cursor: default;
+    cursor: help;
     vertical-align: middle;
+}
+
+.missing svg {
+    width: 15px;
+    height: 15px;
+    transform: translateY(5%);
 }

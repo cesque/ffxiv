@@ -5,6 +5,8 @@ import styles from './Consequence.module.css'
 import { HideContentContext } from '../HideContentContext/HideContentContext'
 import { ReactNode, useContext } from 'react'
 
+import StarIcon from '@/icons/five-point-asterisk.svg'
+
 interface Props {
     children: ReactNode,
 }
@@ -15,6 +17,6 @@ export default function Consequence({ children }: Props) {
     if(showConsequences) {
         return <span className={ styles.consequence }>{ children }</span>
     } else {
-        return <span className={ styles.missing } title="Some content hidden due to your 'Show consequences' setting">*</span>
+        return <span className={ styles.missing } title="Some content hidden due to your 'Show consequences' setting"><StarIcon /></span>
     }
 }
