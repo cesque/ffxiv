@@ -32,7 +32,7 @@ export default function Settings() {
             <select className={ styles.roleSelect } id="role-select" onChange={ handleRoleChange }>
                 <option value="all">All</option>
                 { Roles.map((role: Role) => {
-                    return <option value={ role }>{ getRoleString(role) }</option>
+                    return <option value={ role } key={ role }>{ getRoleString(role) }</option>
                 })}
             </select>
         </div>

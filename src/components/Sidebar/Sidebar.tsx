@@ -25,7 +25,7 @@ function Item({ name, type, difficulty, slug }: ItemProps) {
         [styles[`item--${ difficulty }`]]: true,
     })
 
-    return <li className={ classes } key={ slug } data-key={ slug }>
+    return <li className={ classes }>
         <Link className={ styles.link } href={ `/${ type }/${ slug }` }>
             <div className={ styles.difficulty }>{ difficulty[0] }</div>
             <div className={ styles.name }>{ name }</div>
@@ -50,6 +50,7 @@ export default function Sidebar() {
                         slug={ post.slug }
                         difficulty={ difficulty }
                         type={ type }
+                        key={ post.slug }
                     />
                 }) }
             </ul>

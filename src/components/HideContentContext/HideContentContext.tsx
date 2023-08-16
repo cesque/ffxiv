@@ -29,8 +29,6 @@ export function HideContextProvider({ children }: Props) {
     let [showConsequences, setShowConsequences] = useState(false)
     let [role, setRole] = useState<Role>()
 
-    console.log({ showConsequences })
-
     let value: HideContentContextValue = {
         showConsequences,
         setShowConsequences,
