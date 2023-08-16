@@ -6,6 +6,7 @@
     gap: var(--spacing-small);
     font-size: 0.8rem;
     color: var(--color-black-200);
+    cursor: help;
 }
 
 .missingIndicator::before,
@@ -13,6 +14,8 @@
     content: '';
     display: block;
     flex-grow: 1;
-    border-bottom: 2px dotted var(--color-black-100);
+    border-bottom: 2px dotted var(--color-black-500);
+    opacity: 0.1;
+    min-width: 25px;
 }
 

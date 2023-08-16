@@ -11,15 +11,15 @@ export const meta = {
     ]
 }
 
-<OnlyTank>
+<OnlyRoles roles={ ['off tank'] }>
     ## Hand Phase
 
     <Trigger type="on" trigger="Hand splits into 2">
-        Off Tank picks up 2nd hand
+        **Off tank**: pick up 2nd hand
 
         Face hands away from each other
     </Trigger>
-</OnlyTank>
+</OnlyRoles>
 
 ## Tornado Phase
 
@@ -29,9 +29,7 @@ export const meta = {
     </Trigger>
 
     <OnlyTank>
-        <Trigger type="if" trigger="Tank" color="blue">
-            Intercept tether
-        </Trigger>
+        **Tank**: Intercept tether
     </OnlyTank>
 </Trigger>
 

@@ -2,7 +2,7 @@
 
 import styles from './Roles.module.css'
 
-import { Role, getRoleArray } from '@/types/Role'
+import { Role, Roles, getRoleString, roleCanSeeContentForExclusive, roleCanSeeContentForInclusive } from '@/types/Role'
 import { ReactNode, useContext } from 'react'
 import { HideContentContext } from '../HideContentContext/HideContentContext'
 
@@ -18,8 +18,10 @@ const tank: Role[] = ['tank', 'main tank', 'off tank']
 const dps: Role[] = ['dps']
 const healer: Role[] = ['healer']
 
-function MissingIndicator() {
-    return <div className={ styles.missingIndicator }>
+function MissingIndicator({ roles }: { roles: Role[] }) {
+    let title = `Content specific to role${ roles.length > 1 ? 's' : '' }: ${ roles.map(getRoleString).join(', ') }`
+
+    return <div className={ styles.missingIndicator } title={ title }>
         some content hidden due to your role
     </div>
 }
@@ -27,18 +29,21 @@ function MissingIndicator() {
 export function OnlyRoles({ roles, children }: ComponentWithChildren & Props) {
     let { role } = useContext(HideContentContext)
 
-    let actualRoles = getRoleArray(role)
-
-    if(actualRoles.some(role => roles.includes(role))) {
+    if(roleCanSeeContentForInclusive(roles, role)) {
         return children
     } else {
-        return <MissingIndicator />
+        return <MissingIndicator roles={ roles } />
     }
-
 }
 
 export function AllExceptRoles({ roles, children }: ComponentWithChildren & Props) {
-    return children
+    let { role } = useContext(HideContentContext)
+
+    if(!role || !roleCanSeeContentForExclusive(roles, role)) {
+        return children
+    } else {
+        return <MissingIndicator roles={ roles } />
+    }
 }
 
 export function OnlyTank({ children }: ComponentWithChildren) {
@@ -47,6 +52,22 @@ export function OnlyTank({ children }: ComponentWithChildren) {
 
 export function AllExceptTank({ children }: ComponentWithChildren) {
     return <AllExceptRoles roles={ tank }>{ children }</AllExceptRoles>
+}
+
+export function OnlyMainTank({ children }: ComponentWithChildren) {
+    return <OnlyRoles roles={ ['main tank'] }>{ children }</OnlyRoles>
+}
+
+export function AllExceptMainTank({ children }: ComponentWithChildren) {
+    return <AllExceptRoles roles={ ['main tank'] }>{ children }</AllExceptRoles>
+}
+
+export function OnlyOffTank({ children }: ComponentWithChildren) {
+    return <OnlyRoles roles={ ['off tank'] }>{ children }</OnlyRoles>
+}
+
+export function AllExceptOffTank({ children }: ComponentWithChildren) {
+    return <AllExceptRoles roles={ ['off tank'] }>{ children }</AllExceptRoles>
 }
 
 export function OnlyDPS({ children }: ComponentWithChildren) {

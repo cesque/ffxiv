@@ -23,9 +23,9 @@
     }
 
     &.trigger--gold {
-        --color: var(--color-gold-300);
+        --color: var(--color-gold-400);
         --background: var(--color-gold-100);
-        --light: var(--color-gold-200);
+        --light: var(--color-gold-300);
     }
 
     &.trigger--orange {
@@ -59,7 +59,7 @@
 }
 
 .separator {
-    background: var(--light);
+    background: var(--color);
     width: 5px;
     height: 5px;
     border-radius: 100vw;

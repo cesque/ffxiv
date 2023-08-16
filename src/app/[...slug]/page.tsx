@@ -15,6 +15,8 @@ import Ul from '@/markdownComponents/Lists/Ul/Ul'
 import {
     OnlyRoles, AllExceptRoles,
     OnlyTank, AllExceptTank,
+    OnlyMainTank, AllExceptMainTank,
+    OnlyOffTank, AllExceptOffTank,
     OnlyDPS, AllExceptDPS,
     OnlyHealer, AllExceptHealer
 } from '@/components/Roles/Roles'
@@ -62,6 +64,10 @@ export default async function PostPage({ params: { slug }, searchParams }: Props
         AllExceptRoles,
         OnlyTank,
         AllExceptTank,
+        OnlyMainTank,
+        AllExceptMainTank,
+        OnlyOffTank,
+        AllExceptOffTank,
         OnlyDPS,
         AllExceptDPS,
         OnlyHealer,

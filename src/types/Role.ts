@@ -14,7 +14,11 @@ export function getRoleString(role: Role) {
     return map[role]
 }  
 
-export function getRoleArray(role?: Role) {
+
+// this functionality below needs to get replaced my something
+// more robust... this is just a hacked together version of
+// tree-based roles with permission
+export function getInclusiveRoles(role?: Role) {
     if(!role) return Roles
 
     let map: { [key in Role]: Role[] } = {
@@ -26,4 +30,30 @@ export function getRoleArray(role?: Role) {
     }
 
     return map[role]
+}
+
+export function getExclusiveRoles(role?: Role) {
+    if(!role) return Roles
+
+    let map: { [key in Role]: Role[] } = {
+        'tank': ['tank', 'main tank', 'off tank'],
+        'dps': ['dps'],
+        'healer': ['healer'],
+        'main tank': ['main tank'],
+        'off tank': ['off tank'],
+    }
+
+    return map[role]
+}
+
+export function roleCanSeeContentForInclusive(contentRoles: Role[], currentRole?: Role) {
+    let roles = contentRoles.flatMap(getInclusiveRoles)
+
+    return currentRole ? roles.includes(currentRole) : true
+}
+
+export function roleCanSeeContentForExclusive(contentRoles: Role[], currentRole?: Role) {
+    let roles = contentRoles.flatMap(getExclusiveRoles)
+
+    return currentRole ? roles.includes(currentRole) : true
 }
