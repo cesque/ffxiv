@@ -1,0 +1,35 @@
+export const meta = {
+    title: `The Aery`,
+    type: 'dungeon',
+    difficulty: 'normal',
+}
+
+## Rangda
+
+<Trigger color="purple" type="when" trigger="Tethered">
+    Pass tether off to pillar on edge of room
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Electric Cachexia">
+    Hug boss
+</Trigger>
+
+## Gyascutus
+
+<Trigger color="red" type="after cast" trigger="Inflammable Fumes">
+    Avoid the fume clouds, they will explode when the boss next casts a spell
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Body Slam">
+    Stand in the center of the room<Consequence>, otherwise it will knock the players out of the arena</Consequence>
+</Trigger>
+
+## Nidhogg
+
+<Trigger color="red" type="before cast" trigger="Sable Weave">
+    Kill **Sable Price**<Consequence>, otherwise the trapped player will die</Consequence>
+</Trigger>
+
+<Trigger color="red" type="before cast" trigger="Massacre">
+    Kill all adds<Consequence>, otherwise party will wipe</Consequence>
+</Trigger>
