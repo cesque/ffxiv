@@ -11,8 +11,10 @@ export const meta = {
     ]
 }
 
+## Living Liquid
+
 <OnlyRoles roles={ ['off tank'] }>
-    ## Hand Phase
+    ### Hand Phase
 
     <Trigger type="on" trigger="Hand splits into 2">
         **Off tank**: pick up 2nd hand
@@ -21,7 +23,7 @@ export const meta = {
     </Trigger>
 </OnlyRoles>
 
-## Tornado Phase
+### Tornado Phase
 
 <Trigger type="on" trigger="Yellow tether from tornado">
     <Trigger type="if" trigger="Tethered" color="gold">
@@ -46,7 +48,7 @@ export const meta = {
 </Trigger>
 
 <OnlyTank>
-    ## Final Human Phase
+    ### Final Human Phase
 
     <Trigger type="on" trigger="4/5 stacks">
         Tank swap
