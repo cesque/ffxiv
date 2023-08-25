@@ -37,7 +37,9 @@ export default function Sidebar() {
     let { search, setSearch, filters, setTypeFilter, setDifficultyFilter, filteredPosts } = useContext(PostsContext)
 
     function getSection(type: DutyType) {
-        let sectionPosts = filteredPosts.filter(post => post.meta.type == type)
+        let sectionPosts = filteredPosts
+            .filter(post => post.meta.type == type)
+            .sort((a, b) => a.meta.title.toLowerCase().localeCompare(b.meta.title.toLowerCase()))
 
         if(sectionPosts.length == 0) return null
 
