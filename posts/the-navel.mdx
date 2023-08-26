@@ -1,0 +1,26 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: 'The Navel',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['titan'],
+}
+
+## Lord of Crags: Titan
+
+<Alert color="red" icon="warning">
+    Don't fall off the map! <Consequence>Otherwise you die</Consequence>
+</Alert>
+
+<Trigger color="red" type="on" trigger="Boss Leap">
+    Run to the inner edge of the red circle<Consequence>, otherwise you will be knocked out of the arena</Consequence>
+</Trigger>
+
+<Trigger color="red" type="on spawn" trigger="Titan's Heart">
+    Kill **Titan's Heart**<Consequence>, otherwise the raid will wipe</Consequence>
+</Trigger>
+
+<Trigger color="orange" type="on spawn" trigger="Granite Gaol">
+    Kill the **Granite Gaol**
+</Trigger>

@@ -1,0 +1,44 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: 'The Howling Eye',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['garuda'],
+}
+
+## Lady of the Vortex: Garuda
+
+### Phase 1
+
+<OnlyTank>
+    **Tank**: Pull Garuda to the edge of the arena away from the stone pillars
+</OnlyTank>
+
+<AllExceptTank>
+    Stand away from the stone pillars<Consequence> otherwise Garuda's attack may destroy them</Consequence>
+</AllExceptTank>
+
+<OnlyTank>
+    <Trigger color="orange" type="on cast" trigger="Slipstream">
+        Move out of Garuda's LOS
+    </Trigger>
+</OnlyTank>
+
+<Trigger color="red" type="on" trigger="Garuda disappear and Mistral Song cast">
+    LOS Garuda using stone pillars
+</Trigger>
+
+<Alert color="orange" icon="warning">
+    Kill all adds
+</Alert>
+
+### Phase 2
+
+<Trigger color="red" type="on cast" trigger="Mistral Shriek">
+    Get away from Garuda
+</Trigger>
+
+<Trigger color="red" type="on cast" trigger="Mistral Song">
+    Hide behind Garuda
+</Trigger>
