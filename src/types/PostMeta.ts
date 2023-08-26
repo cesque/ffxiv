@@ -11,4 +11,5 @@ export type PostMeta = {
     type: DutyType,
     difficulty: DutyDifficulty,
     belongsTo?: BelongsTo[],
+    alias?: string[],
 }

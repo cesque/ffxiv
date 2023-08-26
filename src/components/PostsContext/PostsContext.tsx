@@ -73,7 +73,7 @@ export function PostsProvider({ posts, categories, children }: Props) {
             return postsInCategory
         }
 
-        let filtered = fuzzySearch(filteredByTypeAndDifficulty, search, item => item.meta.title)
+        let filtered = fuzzySearch(filteredByTypeAndDifficulty, search, item => [item.meta.title, ...(item.meta?.alias || [])].join("|"))
 
         return filtered
     }, [posts, search, typeFilter, difficultyFilter])
