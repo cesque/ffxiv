@@ -1,0 +1,31 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: `The Thousand Maws of Toto-Rak`,
+    type: 'dungeon',
+    difficulty: 'normal',
+}
+
+## Coeurl O' Nine Tails
+
+<OnlyHealer>
+    <Trigger type="on cast" trigger="Acid Mist">
+        **Healer**: Cleanse the **Poison** debuff
+    </Trigger>
+</OnlyHealer>
+
+## Graffias
+
+<Alert type="warning" color="orange">
+    Kill the adds and the pods before they explode (or run away!)
+</Alert>
+
+<Alert type="warning" color="orange">
+    Kill his tail to make him vulnerable
+</Alert>
+
+<OnlyHealer>
+    <Trigger type="on debuff" trigger="Poison">
+        **Healer**: Cleanse the **Poison** debuff
+    </Trigger>
+</OnlyHealer>
