@@ -1,0 +1,39 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: `The Fractal Continuum`,
+    type: 'dungeon',
+    difficulty: 'normal',
+}
+
+## Minotaur
+
+<Trigger color="orange" type="on cast" trigger="10-tonze Slash">
+    Move behind or to the side of the boss<Consequence>, he will do a long range instant attack in-front</Consequence>
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="111-tonze Swipe">
+    Move out of melee range of boss<Consequence>, he will do an instant 360 degrees melee attack</Consequence>
+</Trigger>
+
+<AllExceptTank>
+    <Trigger color="red" type="on cast" trigger="1111-tonze Swipe">
+        Interact with a **Biomass Incubator**<Consequence>, otherwise the party will wipe</Consequence>. Kill the add 
+    </Trigger>
+</AllExceptTank>
+
+## The Curator
+
+<Alert color="orange" icon="warning">
+    Avoid the glowing squares
+</Alert>
+
+<Alert color="red" icon="warning">
+    Kill all adds ASAP
+</Alert>
+
+<OnlyHealer>
+    <Trigger color="red" type="on debuff" trigger="Aetherochemical Explosive">
+        **Healer**: Cleanse the debuff<Consequence>, otherwise the player will die over time quickly</Consequence>
+    </Trigger>
+</OnlyHealer>
