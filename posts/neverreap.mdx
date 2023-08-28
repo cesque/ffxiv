@@ -1,0 +1,49 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: `Neverreap`,
+    type: 'dungeon',
+    difficulty: 'normal',
+}
+
+## Nunyenunc
+
+<Alert color="orange" icon="warning">
+    Kill **Nunyeninc's Feathers** ASAP<Consequence>, otherwise they explode and give you **Vulnerability Up**</Consequence>
+</Alert>
+
+<Trigger color="red" type="on" trigger="Boss Disappear">
+    Run around the edge of the arena to find **Nunyenunc's Shadow** then kill it
+</Trigger>
+
+## Canu Vanu
+
+1. The boss will mark 2 players
+2. Totems will spawn on marked players
+3. A large purple circle will spawn
+4. Pick up the totems and move them out of the circle
+5. Repeat until the boss is dead
+
+<OnlyHealer>
+    <Trigger color="orange" type="on cast" trigger="Morrowcloud ">
+        **Healer**: Cleanse the **Bleed** debuff
+    </Trigger>
+</OnlyHealer>
+
+## Waukkeon
+
+<Trigger type="on" trigger="Adds Spawn">
+    Kill all adds
+    
+    <Trigger color="orange" type="on" trigger="Adds Killed">
+        The boss will cast **Turbine** pushing everyone away
+    </Trigger>
+
+    <Trigger color="red" type="on cast" trigger="Turbine">
+        Stand next to the boss with space behind you **or** use an ability that makes you immune to knockback
+    </Trigger>
+</Trigger>
+
+<Alert color="orange" icon="warning">
+    Avoid the tornadoes<Consequence>, otherwise they fling you up and the air and annoy you</Consequence>
+</Alert>
