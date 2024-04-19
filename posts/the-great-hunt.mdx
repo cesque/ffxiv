@@ -1,0 +1,40 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: 'The Great Hunt',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['rathalos'],
+}
+
+## Rathalos
+
+<Alert color="green" icon="warning">
+    **Rathalos** is unaffected by enmity and cannot be tanked
+</Alert>
+
+Do not waste the **Mega Potion** duty action, as you may need it in Phase 3
+
+## Phase 2
+
+Adds will spawn; you can tank them under the **Rathalos** to let him deal additional damage to them
+
+<Trigger type="on" trigger="Garula enters" color="blue">
+    One player mount the boss
+
+    Everyone else DPS the **Garula**<Consequence> (if you fail the DPS check, you will wipe)</Consequence>
+</Trigger>
+
+<Trigger type="on" trigger="Garula dies" color="orange">
+    Stand behind the **Garula**'s corpse
+</Trigger>
+
+## Phase 3
+
+<Alert color="red" icon="warning">
+    You cannot heal in this phase, aside from using the **Mega Potion** duty action
+
+    <OnlyHealer>
+        Healers can still cast **Esuna**, as well as give shields
+    </OnlyHealer>
+</Alert>

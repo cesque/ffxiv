@@ -41,8 +41,6 @@
 }
 
 .item {
-    padding: 4px 8px;
-    border-radius: 100vw;
     background: var(--color-white);
     margin: 0;
     font-size: 0.8rem;
@@ -84,10 +82,14 @@
 }
 
 .item:hover {
-    background: var(--color-black-100);    
+    .link {
+        background: var(--color-black-100);    
+    }
 }
 
 .link {
+    padding: 4px 8px;
+    border-radius: 100vw;
     display: flex;
     align-items: center;
     gap: var(--spacing-small);
