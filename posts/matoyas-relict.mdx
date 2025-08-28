@@ -1,0 +1,36 @@
+export const meta = {
+    title: 'Matoya\'s Relict',
+    type: 'dungeon',
+    difficulty: 'normal',
+    alias: ['matoya', 'relict', 'porxie', 'pig'],
+}
+
+## Mudman
+
+<Trigger type="when" trigger="tethered" color="orange">
+    Position self between tethered mud ball and sink hole (avoid mudmen in holes)
+</Trigger>
+
+## Nixie
+
+<AllExceptTank>
+    <Trigger type="on cast" trigger="Smash-Crash" color="orange">
+        Get out the way of tethers
+    </Trigger>
+</AllExceptTank>
+
+<Trigger type="on cast" trigger="Shower Power" color="blue">
+    **Water pipes** - stand in lane without glowing pipe
+</Trigger>
+
+<Trigger type="on cast" trigger="Singing in the Rain" color="red">
+    1. Stand on water spout near cloud to get knocked upward onto it
+    2. Kill **Unfinished Nixies** <Consequence>to prevent party wipe</Consequence>
+    2. Stay on cloud <Consequence>as the lower platform will be nuked</Consequence>
+</Trigger>
+
+## Mother Porxie
+
+<Trigger type="on cast" trigger="Huff and Puff" color="orange">
+    Stand close to **Mother Porxie** (not in safe zone circle)
+</Trigger>

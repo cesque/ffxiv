@@ -1,0 +1,91 @@
+import Alert from '@/components/Alert/Alert'
+
+export const meta = {
+    title: 'The Seat of Sacrifice',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['elidibus', 'warrior of light'],
+}
+
+## Warrior of Light: Elidibus
+
+<OnlyDPS>
+    <Alert color="green" icon="warning">
+        **DPS** - Only use **Limit Break** while the boss is casting another ability <Consequence>otherwise he will use **Hallowed Ground** and become invulnerable for 8 seconds</Consequence>
+    </Alert>
+</OnlyDPS>
+
+### Phase 1
+
+<OnlyHealer>
+    <Trigger type="on cast" trigger="Terror Unleashed" color="purple">
+        **Doom attack** - heal players to full <Consequence>otherwise the players will die when the debuff expires</Consequence>
+    </Trigger>
+</OnlyHealer>
+
+<Trigger type="on cast" trigger="Coruscant Saber" color="blue">
+    **Check the boss's sword**:
+    
+    - **With rings**: Stack on boss
+    - **Without rings**: Move away from boss
+
+    <Trigger type="if" trigger="Imbued">
+        <Red>Fire III</Red> or <Blue>Blizzard III</Blue> will be cast
+    </Trigger>
+</Trigger>
+
+<Trigger type="on cast" trigger="Absolute Fire/Blizzard III">
+    <Trigger type="if cast" trigger="Fire III or Pause Icon" color="red">
+        **Pause** - Stop moving/casting for a few seconds once debuffed
+    </Trigger>
+
+    <Trigger type="if cast" trigger="Blizzard III or Play Icon" color="blue">
+        **Play** - Keep moving when the mark disappears <Consequence>otherwise you will be frozen in place</Consequence>
+    </Trigger>
+
+    <Trigger type="if cast" trigger="Imbued Absolute Fire/Blizzard III" color="purple">
+        Move away from boss
+    </Trigger>
+</Trigger>
+
+<Trigger type="on cast" trigger="Sword of Light" color="red">
+    Move out of the triangle area cut by **sword**
+</Trigger>
+
+<Trigger type="on cast" trigger="Summon Wyrm" color="blue">
+    Move out the way of **Bahamut**
+</Trigger>
+
+<OnlyHealer>
+    <Trigger type="before cast" trigger="Elddragon Dive" color="orange">
+        Mitigate party damage
+    </Trigger>
+</OnlyHealer>
+
+### Intermission
+
+<Trigger type="on text" trigger="Transcend your limits and weather the gathering storm!" color="red">
+    <OnlyTank>
+        **Tanks**: Use **Level 3 Limit Break**
+    </OnlyTank>
+    
+    **Shield** + **Heal** + **Mitigation**
+</Trigger>
+
+### Phase 2
+
+<Trigger type="before" trigger="Meteor lands" color="orange">
+    **2 players soak the meteor**
+</Trigger>
+
+<Trigger type="on cast" trigger="To the Limit - Level 1" color="red">
+    Cone attacks to marked players - **do not stack**
+</Trigger>
+
+<Trigger type="on cast" trigger="To the Limit - Level 2" color="red">
+    Split into **two groups** on **either side** of the boss
+</Trigger>
+
+<Trigger type="on tether" trigger="Bahamuts" color="orange">
+    Point your **Bahamut** outside the arena
+</Trigger>
