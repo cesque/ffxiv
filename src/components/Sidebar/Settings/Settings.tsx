@@ -17,14 +17,14 @@ export default function Settings() {
 
     return <section className={ styles.settings }>
         <div className={ styles.checkboxContainer }>
-            <input id="show-consequences"
+            <input id="display-mode"
                 type="checkbox"
                 className={ styles.checkbox }
                 onChange={ toggleDisplayMode }
                 role="checkbox"
                 checked={ displayMode == 'compact' }
             />
-            <label htmlFor="show-consequences" className={ styles.checkboxLabel }>Compact mode</label>
+            <label htmlFor="display-mode" className={ styles.checkboxLabel }>Compact mode</label>
         </div>
 
         <div className={ styles.checkboxContainer }>
