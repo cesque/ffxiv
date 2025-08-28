@@ -85,7 +85,7 @@
 
 .container {
     display: flex;
-    gap: var(--spacing-small);
+    gap: var(--spacing-xsmall);
 }
 
 .icon {
@@ -97,13 +97,13 @@
 
 .content {
     /* flex-grow: 1; */
-    padding: var(--spacing-small) var(--spacing-medium);
+    padding: var(--spacing-small);
   
     background: var(--background);
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.3;
 
-    border: 3px solid var(--light);
+    border: 1px solid var(--light);
     border-radius: var(--spacing-small);
 }
 
@@ -112,5 +112,51 @@
 }
 
 .content > :last-child {  
+    margin-bottom: 0;
+}
+
+/* --- compact styles --- */
+
+:global(.compact) .trigger {
+    margin: var(--spacing-small) 0;
+    gap: 0;
+}
+
+:global(.compact) .header {
+    font-size: 1rem;
+}
+
+:global(.compact) .icon {
+    width: 20px;
+    height: 20px;
+}
+
+:global(.compact) .type {
+    font-weight: bold;
+}
+
+:global(.compact) .content {
+    padding: var(--spacing-xsmall);
+    border: none;
+    border-radius: 0;
+    border-left: 3px solid var(--light);
+
+    background: var(--background);
+    background: linear-gradient(to right, var(--background), transparent);
+}
+
+:global(.compact) .content .content {
+    background: var(--background);
+}
+
+:global(.compact) .content p {
+    margin: var(--spacing-xsmall) 0;
+}
+
+:global(.compact) .content :first-child {
+    margin-top: 0;
+}
+
+:global(.compact) .content :last-child {
     margin-bottom: 0;
 }

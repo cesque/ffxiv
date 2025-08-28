@@ -6,34 +6,34 @@
     gap: var(--spacing-xsmall);
 }
 
-.showConsequencesContainer {
+.checkboxContainer {
     display: flex;
     align-items: center;
     gap: var(--spacing-xsmall);
     cursor: pointer;
 }
 
-.showConsequencesInput {
+.checkbox {
     cursor: pointer;
 }
 
-.showConsequencesLabel {
+.checkboxLabel {
     font-size: 0.8rem;
     color: var(--color-black-300);
     cursor: pointer;
 }
 
-.roleSection {
+.selectSection {
     display: flex;
     align-items: center;
     gap: var(--spacing-xsmall);
 }
 
-.roleLabel {
+.selectSection {
     font-size: 0.8rem;
     color: var(--color-black-300);
 }
 
-.roleSelect {
+.selectInput {
     flex-grow: 1;
 }

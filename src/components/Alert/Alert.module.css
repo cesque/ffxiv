@@ -47,7 +47,6 @@
     color: var(--color);
 }
 
-
 .icon svg {
     width: 30px;
     height: 30px;
@@ -81,5 +80,59 @@
 }
 
 .content > :last-child {  
+    margin-bottom: 0;
+}
+
+/* --- compact styles --- */
+
+:global(.compact) .alert {
+    margin: var(--spacing-small) 0;
+    gap: 0;
+}
+
+:global(.compact) .icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+:global(.compact) .container {
+    border: none;
+    border-radius: 0;
+    background: none;
+}
+
+:global(.compact) .title {
+    background: none;
+    padding: 0;
+    font-weight: bold;
+    color: var(--color);
+    font-size: 0.8rem;
+    letter-spacing: unset;
+}
+
+:global(.compact) .content {
+    padding: var(--spacing-xsmall);
+    border: none;
+    border-radius: 0;
+    border-left: 3px solid var(--color);
+    font-size: 0.8rem;
+
+    background: var(--background);
+    background: linear-gradient(to right, var(--background), transparent);
+}
+
+:global(.compact) .content .content {
+    background: var(--background);
+}
+
+:global(.compact) .content p {
+    margin: var(--spacing-xsmall) 0;
+}
+
+:global(.compact) .content :first-child {
+    margin-top: 0;
+}
+
+:global(.compact) .content :last-child {
     margin-bottom: 0;
 }

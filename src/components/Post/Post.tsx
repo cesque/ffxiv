@@ -1,7 +1,11 @@
+'use client'
+
 import { H1 } from '@/markdownComponents/Heading/Heading'
 import styles from './Post.module.css'
 import { PostMeta } from '@/types/PostMeta'
 import PostTags from '../PostTags/PostTags'
+import classNames from 'classnames'
+import { useSettings } from '../SettingsContext/SettingsContext'
 
 interface Props {
     slug: string,
@@ -11,6 +15,8 @@ interface Props {
 }
 
 export default function Post({ slug, info, meta, children }: Props) {
+    const { displayMode } = useSettings()
+
     let { title, type, difficulty, belongsTo } = meta
     let tags: string[] = [
         type,
@@ -23,6 +29,10 @@ export default function Post({ slug, info, meta, children }: Props) {
         }
     }
 
+    const postClasses = classNames(styles.post, {
+        compact: displayMode == 'compact'
+    })
+
     return <div className={ styles.container }>
         <PostTags tags={ tags } />
         <H1 className={ styles.title }>{ title }</H1>
@@ -32,7 +42,7 @@ export default function Post({ slug, info, meta, children }: Props) {
             <p>If a boss ability isn't listed, just dodge any AoEs and otherwise ignore it</p>
         </aside>
 
-        <article className={ styles.post }>
+        <article className={ postClasses }>
             { children }
         </article>
     </div>

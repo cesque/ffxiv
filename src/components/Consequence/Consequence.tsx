@@ -2,7 +2,7 @@
 
 import styles from './Consequence.module.css'
 
-import { ReactNode, useContext } from 'react'
+import { ReactNode } from 'react'
 
 import StarIcon from '@/icons/five-point-asterisk.svg'
 import { useSettings } from '../SettingsContext/SettingsContext'

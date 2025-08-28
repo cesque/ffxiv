@@ -7,7 +7,7 @@ import { useSettings } from '@/components/SettingsContext/SettingsContext'
 import { Role, Roles, getRoleString } from '@/types/Role'
 
 export default function Settings() {
-    let { showConsequences, setShowConsequences, role, setRole } = useSettings()
+    let { showConsequences, toggleShowConsequences, role, setRole, displayMode, toggleDisplayMode } = useSettings()
 
     function handleRoleChange(event: ChangeEvent<HTMLSelectElement>) {
         let value = event.currentTarget.value
@@ -16,20 +16,31 @@ export default function Settings() {
     }
 
     return <section className={ styles.settings }>
-        <div className={ styles.showConsequencesContainer }>
+        <div className={ styles.checkboxContainer }>
             <input id="show-consequences"
                 type="checkbox"
-                className={ styles.showConsequencesInput }
-                onChange={ () => setShowConsequences(!showConsequences) }
+                className={ styles.checkbox }
+                onChange={ toggleDisplayMode }
+                role="checkbox"
+                checked={ displayMode == 'compact' }
+            />
+            <label htmlFor="show-consequences" className={ styles.checkboxLabel }>Compact mode</label>
+        </div>
+
+        <div className={ styles.checkboxContainer }>
+            <input id="show-consequences"
+                type="checkbox"
+                className={ styles.checkbox }
+                onChange={ toggleShowConsequences }
                 role="checkbox"
                 checked={ showConsequences }
             />
-            <label htmlFor="show-consequences" className={ styles.showConsequencesLabel }>Show consequences</label>
+            <label htmlFor="show-consequences" className={ styles.checkboxLabel }>Show consequences</label>
         </div>
 
-        <div className={ styles.roleSection }>
-            <label className={ styles.roleLabel } htmlFor="role-select">Show role instructions</label>
-            <select className={ styles.roleSelect } id="role-select" onChange={ handleRoleChange }>
+        <div className={ styles.selectSection }>
+            <label className={ styles.selectLabel } htmlFor="role-select">Show role instructions</label>
+            <select className={ styles.selectInput } id="role-select" onChange={ handleRoleChange } value={ role ?? 'all' }>
                 <option value="all">All</option>
                 { Roles.map((role: Role) => {
                     return <option value={ role } key={ role }>{ getRoleString(role) }</option>

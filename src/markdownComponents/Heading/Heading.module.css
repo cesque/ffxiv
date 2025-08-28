@@ -25,3 +25,26 @@
     margin-top: var(--spacing-medium);
     font-size: 1.2rem;
 }
+
+:global(.compact) .heading {
+    margin-top: var(--spacing-medium);
+    font-size: 2rem;
+}
+
+:global(.compact) .heading--3 {
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
+    font-weight: normal;
+}
+
+:global(.compact) .heading--3:before {
+    content: '';
+
+    height: 4px;
+    background: var(--color-black-100);
+    border-radius: 100vw;
+    flex-grow: 0;
+    flex-shrink: 0;
+    min-width: 10px;
+    transform: translateY(-0.3ex);
+}
