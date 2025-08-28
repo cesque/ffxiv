@@ -3,8 +3,8 @@
 import styles from './Roles.module.css'
 
 import { Role, Roles, getRoleString, roleCanSeeContentForExclusive, roleCanSeeContentForInclusive } from '@/types/Role'
-import { ReactNode, useContext } from 'react'
-import { HideContentContext } from '../HideContentContext/HideContentContext'
+import { ReactNode } from 'react'
+import { useSettings } from '../SettingsContext/SettingsContext'
 
 interface ComponentWithChildren {
     children: ReactNode
@@ -27,7 +27,7 @@ function MissingIndicator({ roles }: { roles: Role[] }) {
 }
 
 export function OnlyRoles({ roles, children }: ComponentWithChildren & Props) {
-    let { role } = useContext(HideContentContext)
+    let { role } = useSettings()
 
     if(roleCanSeeContentForInclusive(roles, role)) {
         return children
@@ -37,7 +37,7 @@ export function OnlyRoles({ roles, children }: ComponentWithChildren & Props) {
 }
 
 export function AllExceptRoles({ roles, children }: ComponentWithChildren & Props) {
-    let { role } = useContext(HideContentContext)
+    let { role } = useSettings()
 
     if(!role || !roleCanSeeContentForExclusive(roles, role)) {
         return children

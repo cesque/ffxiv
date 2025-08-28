@@ -2,12 +2,12 @@
 
 import styles from './Settings.module.css'
 
-import { ChangeEvent, useContext } from 'react'
-import { HideContentContext } from '@/components/HideContentContext/HideContentContext'
+import { ChangeEvent } from 'react'
+import { useSettings } from '@/components/SettingsContext/SettingsContext'
 import { Role, Roles, getRoleString } from '@/types/Role'
 
 export default function Settings() {
-    let { showConsequences, setShowConsequences, role, setRole } = useContext(HideContentContext)
+    let { showConsequences, setShowConsequences, role, setRole } = useSettings()
 
     function handleRoleChange(event: ChangeEvent<HTMLSelectElement>) {
         let value = event.currentTarget.value

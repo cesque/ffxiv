@@ -2,17 +2,17 @@
 
 import styles from './Consequence.module.css'
 
-import { HideContentContext } from '../HideContentContext/HideContentContext'
 import { ReactNode, useContext } from 'react'
 
 import StarIcon from '@/icons/five-point-asterisk.svg'
+import { useSettings } from '../SettingsContext/SettingsContext'
 
 interface Props {
     children: ReactNode,
 }
 
 export default function Consequence({ children }: Props) {
-    let { showConsequences } = useContext(HideContentContext)
+    let { showConsequences } = useSettings()
 
     if(showConsequences) {
         return <span className={ styles.consequence }>{ children }</span>
