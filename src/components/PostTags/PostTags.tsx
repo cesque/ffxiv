@@ -4,6 +4,6 @@ import PostTag from './PostTag'
 
 export default function PostTags({ tags }: { tags: string[] }) {
     return <div className={ styles.tags }>
-        { tags.map(tag => <PostTag tag={ tag } />) }
+        { tags.map((tag, index) => <PostTag tag={ tag } key={ index } />) }
     </div>
 }
