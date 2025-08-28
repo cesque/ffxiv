@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs'
 import path from 'path'
+
 const dirPath = path.join(process.cwd(), 'posts/')
 
 export default async function getPost(slug: string) {

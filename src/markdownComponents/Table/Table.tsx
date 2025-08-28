@@ -1,7 +1,13 @@
 import classNames from 'classnames'
 import styles from './Table.module.scss'
+import { PropsWithChildren } from 'react'
 
-export default function Table({ wide, full, children }) {
+interface Props {
+    wide?: boolean
+    full?: boolean
+}
+
+export default function Table({ wide, full, children }: PropsWithChildren<Props>) {
     let classes = classNames(styles.container, {
         [styles.containerWide]: !!wide,
         [styles.containerFull]: !!full,

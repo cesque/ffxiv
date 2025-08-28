@@ -1,0 +1,105 @@
+import Alert from '@/components/Alert/Alert'
+import PlusIcon from '@/icons/plus.svg'
+import MinusIcon from '@/icons/minus.svg'
+
+## Meta
+
+Each page should have a `meta` object with the following fields:
+- `title`: the name of the encounter (or dungeon, etc.)
+- `type`: the type of the encounter (e.g. `dungeon`, `raid`, `trial`, etc.)
+- `difficulty`: the difficulty of the encounter (e.g. `normal`, `hard`, `lunatic`, `chaos`, etc.)
+- `alias`: an optional array of alias for the post (e.g. `['matoya', 'relict', 'porxie', 'pig']`)
+
+## Colours
+
+When setting the color of a trigger, use the following colours:
+
+- 🔵 **Blue** = useful information - mechanics, positioning
+- 🟠 **Orange** = warnings
+- 🔴 **Red** = critical warnings
+- 🟣 **Purple** = debuffs
+
+## Triggers
+
+Triggers can be used when a specific condition needs to occur before knowledge becomes useful. This could be the cast of a spell, or the appearance of a debuff.
+
+An example of a trigger is:
+
+```mdx
+<Trigger type="on cast" trigger="Spell Name" color="orange">
+    <Consequence>A monkey appears and then dances for you</Consequence>
+</Trigger>
+```
+
+Triggers consist of 2 parts:
+- the type of the trigger: e.g. "on cast", "before cast", "when", "after", "on text"
+- the trigger name - e.g. "Spell Name", "Tethered"
+
+Examples:
+- **on cast**: when a spell is cast
+- **on debuff**: when a debuff appears
+- **on tether**: when a tether is applied
+
+## Alerts
+
+Alerts are useful for overall encounter knowledge; don't use them for mechanics or specific trigger information
+
+<Alert color="green" icon="warning">
+    Helpful hints such as "Boss is unaffected by enmity and cannot be tanked"
+</Alert>
+
+<Alert color="orange" icon="warning">
+    Important warnings such as "Kill both bosses at the same time"
+</Alert>
+
+<Alert color="red" icon="warning">
+    Critical warnings such as "Don't fall off the edge <Consequence>or you will die</Consequence>"
+</Alert>
+
+## Nested Triggers
+
+Nested triggers can be used to group logic or when several paths can occur.
+
+<Trigger type="on" trigger={ <>Marked with <PlusIcon/> plus or <MinusIcon /> minus icon</> }>
+    **Mnemonic**: reverse magnet
+
+    <Trigger type="if" trigger="Same symbol as ally" color="green">
+        Stand close to ally and center
+    </Trigger>
+
+    <Trigger type="if" trigger="Different symbol to ally" color="red">
+        Stand far away from ally
+    </Trigger>
+</Trigger>
+
+<Trigger type="on" trigger={ <>Marked with <PlusIcon/> plus or <MinusIcon /> minus icon</> }>
+    **Mnemonic**: reverse magnet
+
+    <Trigger type="if" trigger="Same symbol as boss" color="green">
+        Stand close to boss
+    </Trigger>
+
+    <Trigger type="if" trigger="Different symbol to boss" color="red">
+        Stand far away from boss
+    </Trigger>
+</Trigger>
+
+## Specific Triggers
+
+### Doom
+
+<OnlyHealer>
+    <Trigger type="on gain debuff" trigger="Doom" color="purple">
+        **Healer**: heal player to full <Consequence>otherwise the player will die when the debuff expires</Consequence>
+    </Trigger>
+</OnlyHealer>
+
+<OnlyHealer>
+    <Trigger type="on cast" trigger="Terror Unleashed" color="purple">
+        **Doom attack** - heal players to full <Consequence>otherwise the players will die when the debuff expires</Consequence>
+    </Trigger>
+</OnlyHealer>
+
+## TODO
+
+Clean up "tethered" phrase

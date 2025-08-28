@@ -1,7 +1,3 @@
-import getPost from '@/utils/getPost'
-import path from 'path'
-import getPosts from '@/utils/getPosts'
-
 import { H1, H2, H3, H4, H5, H6 } from '@/markdownComponents/Heading/Heading'
 import Paragraph from '@/markdownComponents/Paragraph/Paragraph'
 import Code from '@/markdownComponents/Code/Code'
@@ -21,28 +17,12 @@ import {
     OnlyHealer, AllExceptHealer
 } from '@/components/Roles/Roles'
 
-import DutyPost from '@/components/Post/DutyPost'
+import Post from '@/components/Post/Post'
 
-export async function generateStaticParams() {
-    let { posts } = await getPosts()
+export default async function StyleGuidePage() {
+    let { default: PostContent } = await import('./style-guide.mdx')
 
-    return posts.map(post => {
-        return [post.meta.type, post.slug]
-    })
-}
-
-interface Props {
-    params: {
-        slug: string[],
-    },
-    searchParams: any,
-}
-
-export default async function PostPage({ params: { slug }, searchParams }: Props) {
-    let actualSlug = slug[slug.length - 1]
-    let { default: PostContent, meta, info } = await getPost(actualSlug)
-
-    let components = {
+    const components = {
         h1: H1,
         h2: H2,
         h3: H3,
@@ -83,7 +63,7 @@ export default async function PostPage({ params: { slug }, searchParams }: Props
         Black,
     }
 
-    return <DutyPost slug={ actualSlug } meta={ meta } info={ info }>
+    return <Post tags={['help']} title="Style Guide">
         <PostContent components={ components } />
-    </DutyPost>
+    </Post>
 }

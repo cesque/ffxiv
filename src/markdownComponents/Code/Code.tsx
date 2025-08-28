@@ -1,6 +1,8 @@
 import styles from './Code.module.css'
 
-export default function Code({ children }) {
+import { PropsWithChildren } from 'react'
+
+export default function Code({ children }: PropsWithChildren) {
     return <code className={ styles.code }>
         { children }
     </code>
