@@ -1,7 +1,5 @@
 .code {
-    border: 2px solid var(--color-foreground);
-    padding-left: 10px;
-    padding-right: 10px;
+    color: var(--color-purple-300);
+    font-family: monospace;
     font-weight: 300;
-    font-family: var(--font-body);
 }
