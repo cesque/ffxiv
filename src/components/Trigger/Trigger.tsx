@@ -6,20 +6,22 @@ import ArrowIcon from '@/icons/curved-arrow.svg'
 import { ReactNode } from 'react'
 import { Color } from '@/types/Color'
 
-// type TriggerType = 'on'
-//     | 'when'
-//     | 'before'
-//     | 'during'
-//     | 'after'
-//     | 'if'
-//     | 'on cast'
-//     | 'before cast'
-//     | 'during cast'
-//     | 'after cast'
-//     | 'on spawn'
+type TriggerTypeEnum = 'on'
+    | 'when'
+    | 'before'
+    | 'during'
+    | 'after'
+    | 'if'
+    | 'on cast'
+    | 'before cast'
+    | 'during cast'
+    | 'after cast'
+    | 'on spawn'
+
+type Trigger = TriggerTypeEnum | string & {}
 
 interface Props {
-    type: string,
+    type: Trigger,
     trigger: string | ReactNode,
     color: Color,
     children: ReactNode,

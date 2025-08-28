@@ -1,0 +1,47 @@
+export const meta = {
+    title: `The Interphos`,
+    type: 'trial',
+    difficulty: 'normal',
+}
+
+## Queen Eternal
+
+### Normal arena
+
+<Trigger color="orange" type="during cast" trigger="Legitimate Force">
+    Look where hands are glowing and stand on opposite half of room when casts go off
+</Trigger>
+
+<Trigger color="red" type="during" trigger="Green floor">
+    Don't stand on warped part of floor
+</Trigger>
+
+### Hourglass arena
+
+<Trigger type="on spawn" trigger="Circle of drones">
+    Stand inside the circle
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Downburst/Powerful Gust">
+    Stand where knockback won't knock you off the platform
+</Trigger>
+
+### 2 Rectangles arena
+
+<Trigger color="orange" type="on cast" trigger="Castellation">
+    Stand in front of hole (check if you are floating or not)
+
+    <Trigger type="if" trigger="Floating" color="red">
+        Ensure you're standing above a platform
+    </Trigger>
+</Trigger>
+
+<Trigger type="on cast" trigger="Absolute Authority">
+    Stack with at least one other person
+
+    Look away from healers<Consequence> or you'll be petrified</Consequence>
+
+    <Trigger color="orange" type="on debuff expire" trigger="Authority's Hold">
+        Don't move
+    </Trigger>
+</Trigger>
