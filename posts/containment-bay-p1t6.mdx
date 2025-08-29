@@ -1,0 +1,46 @@
+export const meta = {
+    title: 'Containment Bay P1T6',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['sophia', 'goddess', 'warring triad'],
+}
+
+## Sophia
+
+### Phase 1
+
+<Trigger type="on cast" trigger="Aero II" color="blue">
+    Fast AoE centered on boss - can **knockback**
+</Trigger>
+
+<Trigger type="on" trigger="Large Head/Sophia Move to edge" color="orange">
+    Move away from the front of the head/boss
+</Trigger>
+
+### Adds Phase
+
+3 adds will spawn that must be killed. Focus in the following order:
+
+1. The Second Demiurge - <Purple>**Gaze**</Purple> attack
+2. The Third Demiurge <OnlyTank>- Tank away from boss</OnlyTank>
+3. The First Demiurge - <Blue>**Directional**</Blue> parry
+
+### Phase 2
+
+<Alert color="red" icon="warning">
+    Platform can now tilt - edges are now **dangerous** - **don't fall off** <Consequence>or you will die</Consequence>
+</Alert>
+
+<Trigger type="on" trigger="boss Tethers" color="blue">
+    Tethers will create meteors. Move to the side with the least meteors.
+
+    <Trigger type="if" trigger="blue Meteor" color="blue">
+        Move to the opposite side
+    </Trigger>
+</Trigger>
+
+<Trigger type="on cast" trigger="Sin & Punishment" color="orange">
+    **Light** and **Dark** rings will spawn on players.
+    
+    Affected players must stack with one player with **opposite color**.
+</Trigger>
