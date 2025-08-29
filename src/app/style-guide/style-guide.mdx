@@ -7,8 +7,37 @@ import MinusIcon from '@/icons/minus.svg'
 Each page should have a `meta` object with the following fields:
 - `title`: the name of the encounter (or dungeon, etc.)
 - `type`: the type of the encounter (e.g. `dungeon`, `raid`, `trial`, etc.)
-- `difficulty`: the difficulty of the encounter (e.g. `normal`, `hard`, `lunatic`, `chaos`, etc.)
+- `difficulty`: the difficulty of the encounter (e.g. `normal`, `hard`, `extreme`, `savage`, etc.)
 - `alias`: an optional array of alias for the post (e.g. `['matoya', 'relict', 'porxie', 'pig']`)
+
+## Triggers
+
+Triggers can be used when a specific condition needs to occur before knowledge becomes useful. This could be the cast of a spell, or the appearance of a debuff.
+
+An example of a trigger is:
+
+```mdx
+<Trigger type="on cast" trigger="Dance Monkey Dance" color="orange">
+    `/clap` to the dancing monkey
+</Trigger>
+```
+
+<Trigger type="on cast" trigger="Dance Monkey Dance" color="orange">
+    `/clap` to the dancing monkey
+</Trigger>
+
+Examples:
+- **on cast**: when a spell is cast
+- **on debuff**: when a debuff appears
+- **on tether**: when a tether is applied
+- **on text**: when text is shown to the player
+- **on spawn**: when an add spawns
+- **before cast**: before a spell is cast
+- **after cast**: after a spell is cast
+
+Triggers should not be written for everything, any obvious mechanic such as stack markers should not be included. Unavoidable damage such as tankbusters or party-wide damage should similarly not be included.
+
+Trigger information should be short and concise, focusing on key information that is actionable by the player. If something is not actionable such having an AoE or tankbuster marked, it should not be included.
 
 ## Colours
 
@@ -18,27 +47,6 @@ When setting the color of a trigger, use the following colours:
 - 🟠 **Orange** = warnings
 - 🔴 **Red** = critical warnings
 - 🟣 **Purple** = debuffs
-
-## Triggers
-
-Triggers can be used when a specific condition needs to occur before knowledge becomes useful. This could be the cast of a spell, or the appearance of a debuff.
-
-An example of a trigger is:
-
-```mdx
-<Trigger type="on cast" trigger="Spell Name" color="orange">
-    <Consequence>A monkey appears and then dances for you</Consequence>
-</Trigger>
-```
-
-Triggers consist of 2 parts:
-- the type of the trigger: e.g. "on cast", "before cast", "when", "after", "on text"
-- the trigger name - e.g. "Spell Name", "Tethered"
-
-Examples:
-- **on cast**: when a spell is cast
-- **on debuff**: when a debuff appears
-- **on tether**: when a tether is applied
 
 ## Alerts
 
