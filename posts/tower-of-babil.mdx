@@ -1,0 +1,62 @@
+import PlusIcon from '@/icons/plus.svg'
+
+export const meta = {
+    title: 'The Tower of Babil',
+    type: 'dungeon',
+    difficulty: 'normal',
+    alias: ['babil', 'anima', 'endwalker'],
+}
+
+## The Tower of Babil
+
+## Barnabas
+
+<Alert color="blue" icon="warning">
+    Several attacks involve magnet polarity.
+    <Trigger type="if" trigger="Share polarity" color="green">
+        You will be pushed.
+    </Trigger>
+    <Trigger type="if" trigger="Opposite polarity" color="red">
+        You will be pulled.
+    </Trigger>
+</Alert>
+
+<Trigger type="on cast" trigger="Ground and Pound" color="orange">
+    **Move away** from the front of the boss
+</Trigger>
+
+<Trigger type="on cast" trigger="Thundercall" color="orange">
+    **Move away** from orbs and boss
+</Trigger>
+
+## Lugae
+
+<Trigger type="on cast" trigger="Downpour" color="purple">
+    Step on <Green>**Green Plate**</Green> to get <Green>**Toad**</Green> debuff
+</Trigger>
+
+<Trigger type="on spawn" trigger="Large Mines" color="red">
+    Mines will explode in a <PlusIcon/> pattern
+</Trigger>
+
+<Trigger type="on cast" trigger="Magitek Chakram" color="purple">
+    Step on <Purple>**Purple Plate**</Purple> to get <Purple>**Minimum**</Purple> debuff
+</Trigger>
+
+## Eikon of Eikons: Anima
+
+<Trigger type="on spawn" trigger="Purple Nails" color="blue">
+    Move to a segment that is not enclosed by nails
+</Trigger>
+
+<Trigger type="on tether" trigger="to Black Hole" color="red">
+    **Stretch tether** until it turns orange
+</Trigger>
+
+<Trigger type="on cast" trigger="Boundless Pain" color="orange">
+    **Move to the corners** of the room
+</Trigger>
+
+<Trigger type="on cast" trigger="Obliviating Claw" color="orange">
+    Claws will shoot **line AoEs** in the order they spawn
+</Trigger>
