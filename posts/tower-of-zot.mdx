@@ -1,0 +1,34 @@
+export const meta = {
+    title: 'The Tower of Zot',
+    type: 'dungeon',
+    difficulty: 'normal',
+    alias: ['magus sisters'],
+}
+
+## The Tower of Zot
+
+## Minduruva
+
+<Alert color="red" icon="green">
+    Spells will also be cast from markers across the room. Stand near the markers and get ready to dodge
+</Alert>
+
+## Sanduruva
+
+<Trigger type="on cast" trigger="Manusya Berserk" color="orange">
+    Move to gap between the orbs, all the way against the wall
+</Trigger>
+
+<Trigger type="before cast" trigger="Manusya Stop" color="purple">
+    Spread out around boss
+</Trigger>
+
+<Trigger type="on cast" trigger="Manusya Confuse" color="orange">
+    Look for the boss not performing emotes, run to the wall behind him
+</Trigger>
+
+## Harbingers Elect
+
+<Alert color="green" icon="warning">
+    Kill Cinduruva first (good luck)
+</Alert>
