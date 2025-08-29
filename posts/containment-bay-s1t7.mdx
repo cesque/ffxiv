@@ -1,0 +1,44 @@
+export const meta = {
+    title: 'Containment Bay S1T7',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['sephirot', 'fiend', 'warring triad'],
+}
+
+## Sephirot
+
+<Alert color="green" icon="warning">
+    **No cast bars or ground indicators** - watch for visual tells and positioning
+</Alert>
+
+### Phase 1
+
+<Trigger type="on" trigger="Boss turns to face random player with arms up" color="orange">
+    180° blast radius. **Stack behind boss**
+</Trigger>
+
+### Phase 2
+
+<Trigger type="on" trigger="Blue circles" color="blue">
+    Circles will **knockback** players, **stand next to them** close to the center of the platform
+</Trigger>
+
+<Trigger type="on" trigger="Gold marker" color="orange">
+    Affected players move to **different sides** of the platform
+</Trigger>
+
+<Trigger type="on" trigger="Boss lowers head to platform" color="blue">
+    Move towards boss as he will **knockback** players
+</Trigger>
+
+<Trigger type="on spawn" trigger="Storm of Words" color="red">
+    **Kill quickly** before it casts<Consequence> or you will wipe</Consequence>
+</Trigger>
+
+<Trigger type="on" trigger="Stack Marker" color="blue">
+    **Stack**<Consequence> or you die</Consequence>
+</Trigger>
+
+<Trigger type="on spawn" trigger="Two large pillars" color="red">
+    One person per pillar
+</Trigger>
