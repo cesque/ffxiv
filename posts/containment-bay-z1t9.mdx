@@ -1,0 +1,40 @@
+export const meta = {
+    title: 'Containment Bay Z1T9',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['zurvan', 'demon', 'warring triad'],
+}
+
+## Zurvan
+
+### Phase 1
+
+<Alert color="orange" icon="warning">
+    Platform divided into quarters that fall **counterclockwise starting from east**
+</Alert>
+
+### Phase 2
+
+<OnlyTank>**Tank** - Face Zurvan to the north</OnlyTank>
+
+<Trigger type="on" trigger="Fireball marker on head" color="blue">
+    Affected players should move to the edge of the arena away from players
+</Trigger>
+
+<Trigger type="on cast" trigger="Wave Cannon" color="orange">
+    **Unmarked line-AoE** at random player
+</Trigger>
+
+### Phase 3
+
+<Trigger type="on spawn" trigger={ <><Red>Fire</Red> & <Blue>Ice</Blue> Meteors</> }>
+    Stand under the meteor that matches your buff
+
+    <Trigger type="if" trigger="Infinite Fire" color="red">
+        Stand under the <Red>**Fire**</Red> Meteor
+    </Trigger>
+
+    <Trigger type="if" trigger="Infinite Ice" color="blue">
+        Stand under the <Blue>**Ice**</Blue> Meteor
+    </Trigger>
+</Trigger>
