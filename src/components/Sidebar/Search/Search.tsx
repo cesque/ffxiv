@@ -16,12 +16,22 @@ export default function Search() {
 
     let isAnyFilter = isSearch || filters.type || filters.difficulty
 
-    return  <section className={ styles.searchSection }>
-        <div className={ styles.searchHeader }>
-            <div className={ styles.searchHeaderName }>Search</div>
-            { isSearch && <a className={ styles.searchHeaderReset } { ...useAccessibility(() => setSearch('')) }>Reset</a> }
-            { isAnyFilter && <a className={ styles.searchHeaderResetAll } { ...useAccessibility(resetAll) }>Reset all</a> }
-        </div>
-        <input type="text" className={ styles.search } value={ search } onChange={ e => setSearch(e.currentTarget.value) } />
-    </section>
+    return (
+        <section className={styles.searchSection}>
+            <div className={styles.searchHeader}>
+                <div className={styles.searchHeaderName}>Search</div>
+                {isSearch && (
+                    <a className={styles.searchHeaderReset} {...useAccessibility(() => setSearch(''))}>
+                        Reset
+                    </a>
+                )}
+                {isAnyFilter && (
+                    <a className={styles.searchHeaderResetAll} {...useAccessibility(resetAll)}>
+                        Reset all
+                    </a>
+                )}
+            </div>
+            <input type="text" className={styles.search} value={search} onChange={(e) => setSearch(e.currentTarget.value)} />
+        </section>
+    )
 }

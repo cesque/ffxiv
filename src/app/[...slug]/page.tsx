@@ -13,12 +13,18 @@ import Consequence from '@/components/Consequence/Consequence'
 import Ol from '@/markdownComponents/Lists/Ol/Ol'
 import Ul from '@/markdownComponents/Lists/Ul/Ul'
 import {
-    OnlyRoles, AllExceptRoles,
-    OnlyTank, AllExceptTank,
-    OnlyMainTank, AllExceptMainTank,
-    OnlyOffTank, AllExceptOffTank,
-    OnlyDPS, AllExceptDPS,
-    OnlyHealer, AllExceptHealer
+    OnlyRoles,
+    AllExceptRoles,
+    OnlyTank,
+    AllExceptTank,
+    OnlyMainTank,
+    AllExceptMainTank,
+    OnlyOffTank,
+    AllExceptOffTank,
+    OnlyDPS,
+    AllExceptDPS,
+    OnlyHealer,
+    AllExceptHealer,
 } from '@/components/Roles/Roles'
 
 import DutyPost from '@/components/Post/DutyPost'
@@ -26,16 +32,16 @@ import DutyPost from '@/components/Post/DutyPost'
 export async function generateStaticParams() {
     const { posts } = await getPosts()
 
-    return posts.map(post => {
+    return posts.map((post) => {
         return [post.meta.type, post.slug]
     })
 }
 
 interface Props {
     params: {
-        slug: string[],
-    },
-    searchParams: any,
+        slug: string[]
+    }
+    searchParams: any
 }
 
 export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
@@ -96,7 +102,9 @@ export default async function PostPage({ params: { slug }, searchParams }: Props
         Black,
     }
 
-    return <DutyPost slug={ actualSlug } meta={ meta } info={ info }>
-        <PostContent components={ components } />
-    </DutyPost>
+    return (
+        <DutyPost slug={actualSlug} meta={meta} info={info}>
+            <PostContent components={components} />
+        </DutyPost>
+    )
 }

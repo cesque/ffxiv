@@ -5,7 +5,5 @@ import classNames from 'classnames'
 import { PropsWithChildren } from 'react'
 
 export default function Ol({ children }: PropsWithChildren) {
-    return <ul className={ classNames(listStyles.list, styles.list) }>
-        { children }
-    </ul>
+    return <ul className={classNames(listStyles.list, styles.list)}>{children}</ul>
 }

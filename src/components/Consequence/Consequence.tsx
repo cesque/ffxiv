@@ -8,15 +8,19 @@ import StarIcon from '@/icons/five-point-asterisk.svg'
 import { useSettings } from '../SettingsContext/SettingsContext'
 
 interface Props {
-    children: ReactNode,
+    children: ReactNode
 }
 
 export default function Consequence({ children }: Props) {
     const { showConsequences } = useSettings()
 
-    if(showConsequences) {
-        return <span className={ styles.consequence }>{ children }</span>
+    if (showConsequences) {
+        return <span className={styles.consequence}>{children}</span>
     } else {
-        return <span className={ styles.missing } title="Some content hidden due to your 'Show consequences' setting"><StarIcon /></span>
+        return (
+            <span className={styles.missing} title="Some content hidden due to your 'Show consequences' setting">
+                <StarIcon />
+            </span>
+        )
     }
 }

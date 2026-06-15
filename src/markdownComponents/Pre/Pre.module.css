@@ -3,7 +3,6 @@
     border-radius: var(--spacing-small);
     padding: var(--spacing-small) var(--spacing-medium);
     overflow-x: auto;
-
 }
 
 .pre :global(code) {

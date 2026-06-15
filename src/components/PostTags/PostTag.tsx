@@ -16,15 +16,19 @@ export default function PostTag({ tag }: { tag: string }) {
     let isDifficulty = isDutyDifficulty(tag)
 
     let classes = classNames(styles.tag, {
-        [styles[`tag--${ tag }`]]: isType || isDifficulty,
+        [styles[`tag--${tag}`]]: isType || isDifficulty,
     })
 
     let action: UIEventHandler = () => setSearch(tag)
-    if(isType) {
+    if (isType) {
         action = () => setTypeFilter(tag as DutyType)
-    } else if(isDifficulty) {
+    } else if (isDifficulty) {
         action = () => setDifficultyFilter(tag as DutyDifficulty)
     }
 
-    return <a className={ classes } { ...useAccessibility(action) }>{ tag }</a>
+    return (
+        <a className={classes} {...useAccessibility(action)}>
+            {tag}
+        </a>
+    )
 }

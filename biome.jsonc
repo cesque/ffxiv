@@ -4,14 +4,38 @@
         "bracketSpacing": true,
         "useEditorconfig": true
     },
+    "css": {
+        "parser": {
+            "cssModules": true
+        },
+    },
     "javascript": {
         "formatter": {
-            "quoteStyle": "single"
-        }
+            "quoteStyle": "single",
+            "semicolons": "asNeeded"
+        },
     },
     "json": {
         "formatter": {
             "enabled": false
+        }
+    },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "linter": {
+        "rules": {
+            "correctness": {
+                "useExhaustiveDependencies": "off"
+            },
+            "suspicious": {
+                // empty blocks in CSS modules are useful because we they indicate elements that exist but have no styles yet
+                "noEmptyBlock": "off",
+                // messes with stuff like @custom-media
+                "noUnknownAtRules": "off"
+            }
         }
     }
 }

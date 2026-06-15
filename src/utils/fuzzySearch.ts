@@ -1,18 +1,18 @@
-import uFuzzy from "@leeoniya/ufuzzy"
+import uFuzzy from '@leeoniya/ufuzzy'
 
 export default function fuzzySearch(haystack: any[], needle: string, accessor: (element: any) => string) {
-    if(haystack.length <= 1) return haystack
+    if (haystack.length <= 1) return haystack
 
-    let fuzzy = new uFuzzy({})
+    const fuzzy = new uFuzzy({})
 
-    let items = accessor ? haystack.map(accessor) : haystack as string[]
+    const items = accessor ? haystack.map(accessor) : (haystack as string[])
 
-    let [indices, info, order] = fuzzy.search(items, needle)
+    const [indices, info, order] = fuzzy.search(items, needle)
 
-    if(!indices || !info || !order) return []
+    if (!indices || !info || !order) return []
 
-    let results = order.map(i => {
-        let index = indices![i]
+    const results = order.map((i) => {
+        const index = indices![i]
         return haystack[index]
     })
 

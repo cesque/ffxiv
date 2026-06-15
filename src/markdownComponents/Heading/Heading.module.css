@@ -12,7 +12,7 @@
 }
 
 .heading:after {
-    content: '';
+    content: "";
 
     height: 4px;
     background: var(--color-black-100);
@@ -38,7 +38,7 @@
 }
 
 :global(.compact) .heading--3:before {
-    content: '';
+    content: "";
 
     height: 4px;
     background: var(--color-black-100);

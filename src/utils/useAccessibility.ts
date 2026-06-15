@@ -1,4 +1,4 @@
-import { KeyboardEvent, UIEventHandler } from "react";
+import type { KeyboardEvent, UIEventHandler } from 'react'
 
 export default function useAccessibility(callback: UIEventHandler) {
     return {
@@ -7,6 +7,6 @@ export default function useAccessibility(callback: UIEventHandler) {
         tabIndex: 0,
         onKeyDown: (event: KeyboardEvent) => {
             if (event.key === 'Enter' || event.key === 'Space') callback(event)
-        }
+        },
     }
 }

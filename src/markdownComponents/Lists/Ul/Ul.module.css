@@ -7,8 +7,7 @@
 }
 
 .list li::before {
-    content: '';
-    display: inline-block;
+    content: "";
     font-size: 1rem;
     font-weight: bold;
     width: 5px;

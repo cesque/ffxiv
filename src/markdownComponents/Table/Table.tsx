@@ -13,9 +13,9 @@ export default function Table({ wide, full, children }: PropsWithChildren<Props>
         [styles.containerFull]: !!full,
     })
 
-    return <div className={ classes }>
-        <table className={ styles.table }>
-            { children }
-        </table>
-    </div>
+    return (
+        <div className={classes}>
+            <table className={styles.table}>{children}</table>
+        </div>
+    )
 }

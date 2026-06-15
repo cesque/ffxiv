@@ -8,13 +8,10 @@ type DisplayMode = 'default' | 'compact'
 interface SettingsState {
     showConsequences: boolean
     role?: Role
-    displayMode: DisplayMode,
+    displayMode: DisplayMode
 }
 
-type SettingsAction =
-    | { type: 'TOGGLE_SHOW_CONSEQUENCES' }
-    | { type: 'SET_ROLE'; payload?: Role }
-    | { type: 'TOGGLE_DISPLAY_MODE'}
+type SettingsAction = { type: 'TOGGLE_SHOW_CONSEQUENCES' } | { type: 'SET_ROLE'; payload?: Role } | { type: 'TOGGLE_DISPLAY_MODE' }
 
 function settingsReducer(state: SettingsState, action: SettingsAction): SettingsState {
     switch (action.type) {
@@ -23,7 +20,7 @@ function settingsReducer(state: SettingsState, action: SettingsAction): Settings
         case 'SET_ROLE':
             return { ...state, role: action.payload }
         case 'TOGGLE_DISPLAY_MODE':
-            return { ...state, displayMode: state.displayMode == 'default' ? 'compact' : 'default' }
+            return { ...state, displayMode: state.displayMode === 'default' ? 'compact' : 'default' }
     }
 }
 
@@ -49,9 +46,7 @@ export function SettingsProvider({ children }: PropsWithChildren) {
         toggleDisplayMode: () => dispatch({ type: 'TOGGLE_DISPLAY_MODE' }),
     }
 
-    return <SettingsContext.Provider value={value}>
-        {children}
-    </SettingsContext.Provider>
+    return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>
 }
 
 export function useSettings() {

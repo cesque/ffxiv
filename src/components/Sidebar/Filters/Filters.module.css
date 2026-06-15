@@ -1,4 +1,3 @@
-
 .filters {
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@
 }
 
 .filterCategoryHeaderName {
-
 }
 
 .filterCategoryHeaderReset {
@@ -41,8 +39,6 @@
 }
 
 .filter {
-    border: none;
-
     --dark: var(--color-black-300);
     --light: var(--color-black-100);
 
@@ -54,7 +50,9 @@
     border-radius: 100vw;
     border: 2px solid transparent;
     cursor: pointer;
-    transition: 0.2s filter ease, 0.2s border-color ease;
+    transition:
+        0.2s filter ease,
+        0.2s border-color ease;
 
     &.filter--hard {
         --dark: var(--color-blue-400);

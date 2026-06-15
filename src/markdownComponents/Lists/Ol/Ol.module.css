@@ -7,7 +7,6 @@
 }
 
 .list li::before {
-    display: inline-block;
     content: counter(list-item) ".";
     counter-increment: item;
     font-size: 1rem;

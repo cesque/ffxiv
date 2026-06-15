@@ -25,26 +25,26 @@ const defaultValue: PostsContextValue = {
 export const PostsContext = createContext(defaultValue)
 
 interface PostsContextValue {
-    posts: Post[],
-    categories: string[],
+    posts: Post[]
+    categories: string[]
 
-    filteredPosts: Post[],
+    filteredPosts: Post[]
 
-    search: string,
+    search: string
     filters: {
-        type?: DutyType,
-        difficulty?: DutyDifficulty,
-    },
+        type?: DutyType
+        difficulty?: DutyDifficulty
+    }
 
-    setSearch: (value: string) => void,
-    setTypeFilter: (value?: DutyType) => void,
-    setDifficultyFilter: (value?: DutyDifficulty) => void,
+    setSearch: (value: string) => void
+    setTypeFilter: (value?: DutyType) => void
+    setDifficultyFilter: (value?: DutyDifficulty) => void
 }
 
 interface Props {
-    posts: Post[],
-    categories: string[],
-    children: ReactNode,
+    posts: Post[]
+    categories: string[]
+    children: ReactNode
 }
 
 export function PostsProvider({ posts, categories, children }: Props) {
@@ -53,27 +53,32 @@ export function PostsProvider({ posts, categories, children }: Props) {
     const [difficultyFilter, setDifficultyFilter] = useState<DutyDifficulty | undefined>()
 
     const filteredPosts = useMemo(() => {
-        const filteredByTypeAndDifficulty = posts.filter(post => {
-            return (typeFilter ? post.meta.type == typeFilter : true)
-                && (difficultyFilter ? post.meta.difficulty == difficultyFilter : true)
+        const filteredByTypeAndDifficulty = posts.filter((post) => {
+            return (
+                (typeFilter ? post.meta.type === typeFilter : true) && (difficultyFilter ? post.meta.difficulty === difficultyFilter : true)
+            )
         })
 
-        if(search.trim().length == 0) return filteredByTypeAndDifficulty
-        
-        if(categories.includes(search)) {
-            const postsInCategory = filteredByTypeAndDifficulty.filter(post => post.meta.belongsTo?.some(belongs => belongs.name == search))
-            
-            postsInCategory.sort((a, b) => {
-                const aBelongs = a.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY
-                const bBelongs = b.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY
+        if (search.trim().length === 0) return filteredByTypeAndDifficulty
 
-                return aBelongs - bBelongs 
+        if (categories.includes(search)) {
+            const postsInCategory = filteredByTypeAndDifficulty.filter((post) =>
+                post.meta.belongsTo?.some((belongs) => belongs.name === search),
+            )
+
+            postsInCategory.sort((a, b) => {
+                const aBelongs = a.meta.belongsTo?.find((belongs) => belongs.name === search)?.entry || Number.POSITIVE_INFINITY
+                const bBelongs = b.meta.belongsTo?.find((belongs) => belongs.name === search)?.entry || Number.POSITIVE_INFINITY
+
+                return aBelongs - bBelongs
             })
 
             return postsInCategory
         }
 
-        const filtered = fuzzySearch(filteredByTypeAndDifficulty, search, item => [item.meta.title, ...(item.meta?.alias || [])].join("|"))
+        const filtered = fuzzySearch(filteredByTypeAndDifficulty, search, (item) =>
+            [item.meta.title, ...(item.meta?.alias || [])].join('|'),
+        )
 
         return filtered
     }, [posts, search, typeFilter, difficultyFilter])
@@ -94,5 +99,5 @@ export function PostsProvider({ posts, categories, children }: Props) {
         setDifficultyFilter,
     }
 
-    return <PostsContext.Provider value={ value }>{ children }</PostsContext.Provider>
+    return <PostsContext.Provider value={value}>{children}</PostsContext.Provider>
 }

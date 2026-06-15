@@ -6,7 +6,8 @@ import ArrowIcon from '@/icons/curved-arrow.svg'
 import { ReactNode } from 'react'
 import { Color } from '@/types/Color'
 
-type TriggerTypeEnum = 'on'
+type TriggerTypeEnum =
+    | 'on'
     | 'when'
     | 'before'
     | 'during'
@@ -18,29 +19,31 @@ type TriggerTypeEnum = 'on'
     | 'after cast'
     | 'on spawn'
 
-type Trigger = TriggerTypeEnum | string & {}
+type Trigger = TriggerTypeEnum | (string & {})
 
 interface Props {
-    type: Trigger,
-    trigger: string | ReactNode,
-    color: Color,
-    children: ReactNode,
+    type: Trigger
+    trigger: string | ReactNode
+    color: Color
+    children: ReactNode
 }
 
-export default function Trigger({ type, trigger, color = 'black', children }: Props)  {
+export default function Trigger({ type, trigger, color = 'black', children }: Props) {
     let classes = classNames(styles.trigger, {
-        [styles[`trigger--${ color }`]]: true,
+        [styles[`trigger--${color}`]]: true,
     })
 
-    return <article className={ classes }>
-        <header className={ styles.header }>
-            <div className={ styles.type }>{ type }</div>
-            <div className={ styles.separator } />
-            <div className={ styles.triggerText }>{ trigger }</div>
-        </header>
-        <div className={ styles.container }>
-            <ArrowIcon className={ styles.icon } />
-            <div className={ styles.content }>{ children }</div>
-        </div>
-    </article>
+    return (
+        <article className={classes}>
+            <header className={styles.header}>
+                <div className={styles.type}>{type}</div>
+                <div className={styles.separator} />
+                <div className={styles.triggerText}>{trigger}</div>
+            </header>
+            <div className={styles.container}>
+                <ArrowIcon className={styles.icon} />
+                <div className={styles.content}>{children}</div>
+            </div>
+        </article>
+    )
 }

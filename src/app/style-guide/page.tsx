@@ -9,12 +9,18 @@ import Consequence from '@/components/Consequence/Consequence'
 import Ol from '@/markdownComponents/Lists/Ol/Ol'
 import Ul from '@/markdownComponents/Lists/Ul/Ul'
 import {
-    OnlyRoles, AllExceptRoles,
-    OnlyTank, AllExceptTank,
-    OnlyMainTank, AllExceptMainTank,
-    OnlyOffTank, AllExceptOffTank,
-    OnlyDPS, AllExceptDPS,
-    OnlyHealer, AllExceptHealer
+    OnlyRoles,
+    AllExceptRoles,
+    OnlyTank,
+    AllExceptTank,
+    OnlyMainTank,
+    AllExceptMainTank,
+    OnlyOffTank,
+    AllExceptOffTank,
+    OnlyDPS,
+    AllExceptDPS,
+    OnlyHealer,
+    AllExceptHealer,
 } from '@/components/Roles/Roles'
 
 import Post from '@/components/Post/Post'
@@ -63,7 +69,9 @@ export default async function StyleGuidePage() {
         Black,
     }
 
-    return <Post tags={['help']} title="Style Guide">
-        <PostContent components={ components } />
-    </Post>
+    return (
+        <Post tags={['help']} title="Style Guide">
+            <PostContent components={components} />
+        </Post>
+    )
 }

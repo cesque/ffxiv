@@ -52,23 +52,25 @@ export default async function RootLayout({ children }: Props) {
     const to = randomGradient[1 - isFlipped]
 
     const colors: any = {
-        '--color-from': `var(--color-${ from }-300)`,
-        '--color-to': `var(--color-${ to }-300)`,
+        '--color-from': `var(--color-${from}-300)`,
+        '--color-to': `var(--color-${to}-300)`,
     }
 
-    return <html lang="en">
-        <body className={ classNames(display.variable, body.variable) }>
-            <div className={ styles.layout }>
-                <SettingsProvider>
-                    <PostsProvider posts={ posts } categories={ categories }>
-                        <Sidebar />
-                        <div className={ styles.content }>
-                            <div className={ styles.padder } style={ colors } />
-                            { children }
-                        </div>
-                    </PostsProvider>
-                </SettingsProvider>
-            </div>
-        </body>
-    </html>
+    return (
+        <html lang="en">
+            <body className={classNames(display.variable, body.variable)}>
+                <div className={styles.layout}>
+                    <SettingsProvider>
+                        <PostsProvider posts={posts} categories={categories}>
+                            <Sidebar />
+                            <div className={styles.content}>
+                                <div className={styles.padder} style={colors} />
+                                {children}
+                            </div>
+                        </PostsProvider>
+                    </SettingsProvider>
+                </div>
+            </body>
+        </html>
+    )
 }
