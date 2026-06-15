@@ -22,7 +22,7 @@ const icons: Record<Icon, ReactNode> = {
 }
 
 export default function Alert({ color = 'black', icon, title, children }: Props) {
-    let classes = classNames(styles.alert, {
+    const classes = classNames(styles.alert, {
         [styles[`alert--${ color }`]]: true,
     })
 

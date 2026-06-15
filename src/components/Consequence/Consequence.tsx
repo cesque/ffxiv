@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Consequence({ children }: Props) {
-    let { showConsequences } = useSettings()
+    const { showConsequences } = useSettings()
 
     if(showConsequences) {
         return <span className={ styles.consequence }>{ children }</span>

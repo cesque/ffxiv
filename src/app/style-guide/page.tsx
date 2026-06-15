@@ -20,7 +20,7 @@ import {
 import Post from '@/components/Post/Post'
 
 export default async function StyleGuidePage() {
-    let { default: PostContent } = await import('./style-guide.mdx')
+    const { default: PostContent } = await import('./style-guide.mdx')
 
     const components = {
         h1: H1,

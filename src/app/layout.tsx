@@ -32,9 +32,9 @@ interface Props {
 }
 
 export default async function RootLayout({ children }: Props) {
-    let { posts, categories } = await getPosts()
+    const { posts, categories } = await getPosts()
 
-    let gradients = [
+    const gradients = [
         ['purple', 'blue'],
         ['purple', 'red'],
         ['purple', 'orange'],
@@ -45,13 +45,13 @@ export default async function RootLayout({ children }: Props) {
         ['orange', 'red'],
     ]
 
-    let randomGradient = gradients[Math.floor(Math.random() * gradients.length)]
-    let isFlipped = Math.random() > 0.5 ? 0 : 1
+    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)]
+    const isFlipped = Math.random() > 0.5 ? 0 : 1
 
-    let from = randomGradient[isFlipped]
-    let to = randomGradient[1 - isFlipped]
+    const from = randomGradient[isFlipped]
+    const to = randomGradient[1 - isFlipped]
 
-    let colors: any = {
+    const colors: any = {
         '--color-from': `var(--color-${ from }-300)`,
         '--color-to': `var(--color-${ to }-300)`,
     }

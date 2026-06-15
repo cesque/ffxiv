@@ -1,0 +1,17 @@
+{
+    "formatter": {
+        "lineWidth": 140,
+        "bracketSpacing": true,
+        "useEditorconfig": true
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single"
+        }
+    },
+    "json": {
+        "formatter": {
+            "enabled": false
+        }
+    }
+}

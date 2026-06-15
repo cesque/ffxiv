@@ -1,6 +1,6 @@
 import getPost from '@/utils/getPost'
-import path from 'path'
 import getPosts from '@/utils/getPosts'
+import type { Metadata } from 'next'
 
 import { H1, H2, H3, H4, H5, H6 } from '@/markdownComponents/Heading/Heading'
 import Paragraph from '@/markdownComponents/Paragraph/Paragraph'
@@ -24,7 +24,7 @@ import {
 import DutyPost from '@/components/Post/DutyPost'
 
 export async function generateStaticParams() {
-    let { posts } = await getPosts()
+    const { posts } = await getPosts()
 
     return posts.map(post => {
         return [post.meta.type, post.slug]
@@ -38,11 +38,24 @@ interface Props {
     searchParams: any,
 }
 
-export default async function PostPage({ params: { slug }, searchParams }: Props) {
-    let actualSlug = slug[slug.length - 1]
-    let { default: PostContent, meta, info } = await getPost(actualSlug)
+export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+    const actualSlug = slug[slug.length - 1]
+    const { meta } = await getPost(actualSlug)
 
-    let components = {
+    const description = `Laconic mechanics guide for ${meta.title}, a ${meta.difficulty} ${meta.type} in Final Fantasy XIV.`
+
+    return {
+        title: `${meta.title} - Duty Guide`,
+        description,
+        ...(meta.alias?.length ? { keywords: meta.alias } : {}),
+    }
+}
+
+export default async function PostPage({ params: { slug }, searchParams }: Props) {
+    const actualSlug = slug[slug.length - 1]
+    const { default: PostContent, meta, info } = await getPost(actualSlug)
+
+    const components = {
         h1: H1,
         h2: H2,
         h3: H3,

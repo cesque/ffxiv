@@ -6,7 +6,7 @@ import fuzzySearch from '@/utils/fuzzySearch'
 import { Post } from '@/utils/getPosts'
 import { ReactNode, createContext, useMemo, useState } from 'react'
 
-let defaultValue: PostsContextValue = {
+const defaultValue: PostsContextValue = {
     posts: [],
     categories: [],
 
@@ -48,12 +48,12 @@ interface Props {
 }
 
 export function PostsProvider({ posts, categories, children }: Props) {
-    let [search, setSearch] = useState('')
-    let [typeFilter, setTypeFilter] = useState<DutyType | undefined>()
-    let [difficultyFilter, setDifficultyFilter] = useState<DutyDifficulty | undefined>()
+    const [search, setSearch] = useState('')
+    const [typeFilter, setTypeFilter] = useState<DutyType | undefined>()
+    const [difficultyFilter, setDifficultyFilter] = useState<DutyDifficulty | undefined>()
 
-    let filteredPosts = useMemo(() => {
-        let filteredByTypeAndDifficulty = posts.filter(post => {
+    const filteredPosts = useMemo(() => {
+        const filteredByTypeAndDifficulty = posts.filter(post => {
             return (typeFilter ? post.meta.type == typeFilter : true)
                 && (difficultyFilter ? post.meta.difficulty == difficultyFilter : true)
         })
@@ -61,11 +61,11 @@ export function PostsProvider({ posts, categories, children }: Props) {
         if(search.trim().length == 0) return filteredByTypeAndDifficulty
         
         if(categories.includes(search)) {
-            let postsInCategory = filteredByTypeAndDifficulty.filter(post => post.meta.belongsTo?.some(belongs => belongs.name == search))
+            const postsInCategory = filteredByTypeAndDifficulty.filter(post => post.meta.belongsTo?.some(belongs => belongs.name == search))
             
             postsInCategory.sort((a, b) => {
-                let aBelongs = a.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY
-                let bBelongs = b.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY
+                const aBelongs = a.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY
+                const bBelongs = b.meta.belongsTo?.find(belongs => belongs.name == search)?.entry || Number.POSITIVE_INFINITY
 
                 return aBelongs - bBelongs 
             })
@@ -73,12 +73,12 @@ export function PostsProvider({ posts, categories, children }: Props) {
             return postsInCategory
         }
 
-        let filtered = fuzzySearch(filteredByTypeAndDifficulty, search, item => [item.meta.title, ...(item.meta?.alias || [])].join("|"))
+        const filtered = fuzzySearch(filteredByTypeAndDifficulty, search, item => [item.meta.title, ...(item.meta?.alias || [])].join("|"))
 
         return filtered
     }, [posts, search, typeFilter, difficultyFilter])
 
-    let value: PostsContextValue = {
+    const value: PostsContextValue = {
         posts,
         categories,
 

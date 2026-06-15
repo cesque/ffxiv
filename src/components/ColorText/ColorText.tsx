@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function ColorText({ color, shade, children }: Props) {
-    let css = {
+    const css = {
         color: `var(--color-${ color }-${ shade || 300 })`
     }
 
