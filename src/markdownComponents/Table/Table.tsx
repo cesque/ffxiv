@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function Table({ wide, full, children }: PropsWithChildren<Props>) {
-    let classes = classNames(styles.container, {
+    const classes = classNames(styles.container, {
         [styles.containerWide]: !!wide,
         [styles.containerFull]: !!full,
     })

@@ -20,7 +20,7 @@ interface ItemProps {
 }
 
 function Item({ name, type, difficulty, slug }: ItemProps) {
-    let classes = classNames(styles.item, {
+    const classes = classNames(styles.item, {
         [styles[`item--${type}`]]: true,
         [styles[`item--${difficulty}`]]: true,
     })

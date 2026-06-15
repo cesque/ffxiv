@@ -5,16 +5,16 @@ import { PostsContext } from '@/components/PostsContext/PostsContext'
 import useAccessibility from '@/utils/useAccessibility'
 
 export default function Search() {
-    let { search, setSearch, filters, setTypeFilter, setDifficultyFilter } = useContext(PostsContext)
+    const { search, setSearch, filters, setTypeFilter, setDifficultyFilter } = useContext(PostsContext)
     function resetAll() {
         setSearch('')
         setTypeFilter(undefined)
         setDifficultyFilter(undefined)
     }
 
-    let isSearch = search.trim().length > 0
+    const isSearch = search.trim().length > 0
 
-    let isAnyFilter = isSearch || filters.type || filters.difficulty
+    const isAnyFilter = isSearch || filters.type || filters.difficulty
 
     return (
         <section className={styles.searchSection}>

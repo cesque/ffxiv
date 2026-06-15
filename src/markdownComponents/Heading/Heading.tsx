@@ -11,7 +11,7 @@ interface BaseProps {
 type SpecificHeadingProps = PropsWithChildren<Omit<BaseProps, 'level'>>
 
 function Heading({ level, className, children }: PropsWithChildren<BaseProps>) {
-    let classes = classNames(styles.heading, styles[`heading--${level}`], className)
+    const classes = classNames(styles.heading, styles[`heading--${level}`], className)
 
     switch (+level) {
         case 1:
@@ -31,9 +31,9 @@ function Heading({ level, className, children }: PropsWithChildren<BaseProps>) {
     }
 }
 
-export let H1 = (props: SpecificHeadingProps) => <Heading level={1} {...props} />
-export let H2 = (props: SpecificHeadingProps) => <Heading level={2} {...props} />
-export let H3 = (props: SpecificHeadingProps) => <Heading level={3} {...props} />
-export let H4 = (props: SpecificHeadingProps) => <Heading level={4} {...props} />
-export let H5 = (props: SpecificHeadingProps) => <Heading level={5} {...props} />
-export let H6 = (props: SpecificHeadingProps) => <Heading level={6} {...props} />
+export const H1 = (props: SpecificHeadingProps) => <Heading level={1} {...props} />
+export const H2 = (props: SpecificHeadingProps) => <Heading level={2} {...props} />
+export const H3 = (props: SpecificHeadingProps) => <Heading level={3} {...props} />
+export const H4 = (props: SpecificHeadingProps) => <Heading level={4} {...props} />
+export const H5 = (props: SpecificHeadingProps) => <Heading level={5} {...props} />
+export const H6 = (props: SpecificHeadingProps) => <Heading level={6} {...props} />

@@ -3,7 +3,7 @@ export const Roles = ['tank', 'dps', 'healer', 'main tank', 'off tank'] as const
 export type Role = (typeof Roles)[number]
 
 export function getRoleString(role: Role) {
-    let map = {
+    const map = {
         tank: 'Tank',
         dps: 'DPS',
         healer: 'Healer',
@@ -20,7 +20,7 @@ export function getRoleString(role: Role) {
 export function getInclusiveRoles(role?: Role) {
     if (!role) return Roles
 
-    let map: { [key in Role]: Role[] } = {
+    const map: { [key in Role]: Role[] } = {
         tank: ['tank', 'main tank', 'off tank'],
         dps: ['dps'],
         healer: ['healer'],
@@ -34,7 +34,7 @@ export function getInclusiveRoles(role?: Role) {
 export function getExclusiveRoles(role?: Role) {
     if (!role) return Roles
 
-    let map: { [key in Role]: Role[] } = {
+    const map: { [key in Role]: Role[] } = {
         tank: ['tank', 'main tank', 'off tank'],
         dps: ['dps'],
         healer: ['healer'],
@@ -46,13 +46,13 @@ export function getExclusiveRoles(role?: Role) {
 }
 
 export function roleCanSeeContentForInclusive(contentRoles: Role[], currentRole?: Role) {
-    let roles = contentRoles.flatMap(getInclusiveRoles)
+    const roles = contentRoles.flatMap(getInclusiveRoles)
 
     return currentRole ? roles.includes(currentRole) : true
 }
 
 export function roleCanSeeContentForExclusive(contentRoles: Role[], currentRole?: Role) {
-    let roles = contentRoles.flatMap(getExclusiveRoles)
+    const roles = contentRoles.flatMap(getExclusiveRoles)
 
     return currentRole ? roles.includes(currentRole) : true
 }

@@ -19,7 +19,7 @@ const dps: Role[] = ['dps']
 const healer: Role[] = ['healer']
 
 function MissingIndicator({ roles }: { roles: Role[] }) {
-    let title = `Content specific to role${roles.length > 1 ? 's' : ''}: ${roles.map(getRoleString).join(', ')}`
+    const title = `Content specific to role${roles.length > 1 ? 's' : ''}: ${roles.map(getRoleString).join(', ')}`
 
     return (
         <div className={styles.missingIndicator} title={title}>
@@ -29,7 +29,7 @@ function MissingIndicator({ roles }: { roles: Role[] }) {
 }
 
 export function OnlyRoles({ roles, children }: ComponentWithChildren & Props) {
-    let { role } = useSettings()
+    const { role } = useSettings()
 
     if (roleCanSeeContentForInclusive(roles, role)) {
         return children
@@ -39,7 +39,7 @@ export function OnlyRoles({ roles, children }: ComponentWithChildren & Props) {
 }
 
 export function AllExceptRoles({ roles, children }: ComponentWithChildren & Props) {
-    let { role } = useSettings()
+    const { role } = useSettings()
 
     if (!role || !roleCanSeeContentForExclusive(roles, role)) {
         return children

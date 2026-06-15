@@ -29,7 +29,7 @@ interface Props {
 }
 
 export default function Trigger({ type, trigger, color = 'black', children }: Props) {
-    let classes = classNames(styles.trigger, {
+    const classes = classNames(styles.trigger, {
         [styles[`trigger--${color}`]]: true,
     })
 

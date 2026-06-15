@@ -10,12 +10,12 @@ import { PostsContext } from '@/components/PostsContext/PostsContext'
 import useAccessibility from '@/utils/useAccessibility'
 
 export default function PostTag({ tag }: { tag: string }) {
-    let { setSearch, setTypeFilter, setDifficultyFilter } = useContext(PostsContext)
+    const { setSearch, setTypeFilter, setDifficultyFilter } = useContext(PostsContext)
 
-    let isType = isDutyType(tag)
-    let isDifficulty = isDutyDifficulty(tag)
+    const isType = isDutyType(tag)
+    const isDifficulty = isDutyDifficulty(tag)
 
-    let classes = classNames(styles.tag, {
+    const classes = classNames(styles.tag, {
         [styles[`tag--${tag}`]]: isType || isDifficulty,
     })
 
