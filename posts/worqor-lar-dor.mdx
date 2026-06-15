@@ -1,0 +1,69 @@
+export const meta = {
+    title: 'Worqor Lar Dor',
+    type: 'trial',
+    difficulty: 'normal',
+    alias: ['valigarmanda'],
+}
+
+## Tural Vidraal: Valigarmanda
+
+<Alert icon="warning">
+    These attacks can happen at any point during the encounter, and **do not have a cast bar**, so you need to be aware of the boss's movements at all times.
+
+    <Trigger type="if" trigger="Boss circles platform" color="red">
+        Move to the center of the platform
+    </Trigger>
+
+    <Trigger type="if" trigger="Boss hovers above platform" color="red">
+        Move to the back of the platform
+    </Trigger>
+
+    <Trigger type="if" trigger="Boss opens mouth" color="red">
+        Move to the front sides of the platform to avoid cone
+    </Trigger>
+</Alert>
+
+## Thunder Phase
+The arena will become a grid of tiles; glowing tiles will cause the player to **levitate**.
+
+<Trigger type="on cast" trigger="Thunderous Breath" color="orange">
+    Move onto a glowing tile
+</Trigger>
+
+<Trigger type="when" trigger="Feathers land on platform" color="orange">
+    Move off the glowing tiles **but** not near a feather<Consequence> because they will explode in a small AoE</Consequence>
+</Trigger>
+
+<Trigger type="when" trigger="Arcane Spheres spawn" color="orange">
+    Move to row where there is no sphere
+</Trigger>
+
+## Ice Phase
+<Trigger type="when" trigger="Avalanche text shows" color="blue">
+    Move out of the way of indicated avalanche (look behind you!)
+</Trigger>
+
+<Trigger type="on cast" trigger="Freezing Dust" color="blue">
+    Make sure you are moving when the timer runs out<Consequence> otherwise you will be frozen in place</Consequence>
+</Trigger>
+
+<Trigger type="on" trigger="Circles spawn" color="blue">
+    Get in position to dodge cardinal + intercardinal line AOEs
+</Trigger>
+
+## Neutral Phase
+<Trigger type="on cast" trigger="Ruinfall" color="red">
+    <OnlyTank>
+        **Tank**: Soak tankbuster tower with other tank
+    </OnlyTank>
+
+    <AllExceptTank>
+        **DPS & Healers**: Telegraphed knockback; position yourself to prevent getting knocked into AOEs at the back of the platform
+    </AllExceptTank>
+</Trigger>
+
+<Trigger type="when" trigger="Beacons spawn" color="red">
+    Kill beacons quickly<Consequence> to prevent filling the boss's <Red>**Ruinous Power**</Red> gauge, which will cause a **wipe** if filled</Consequence>
+
+    Dodge cone AOEs and **stack** on constant stack line indicators
+</Trigger>
