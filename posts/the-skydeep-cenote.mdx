@@ -1,0 +1,50 @@
+export const meta = {
+    title: `The Skydeep Cenote`,
+    type: 'dungeon',
+    difficulty: 'normal',
+    alias: ['feather ray', 'firearms', 'maulskull']
+}
+
+## Feather Ray
+
+<Trigger type="if you have debuff" trigger="Nuisance" color="purple">
+    <Trigger color="orange" type="on cast" trigger="Worrisome Wave">
+        Face away from other players<Consequence>, because you'll copy the boss attack and fire a narrow cone AoE in the direction you're facing</Consequence>
+    </Trigger>
+
+    <Trigger color="orange" type="on cast" trigger="Trouble Bubbles">
+        Face away from other players<Consequence>, because you'll copy the boss attack and fire slow moving bubbles in the direction you're facing</Consequence>
+    </Trigger>
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Bubble Bomb/Rolling Current">
+    **Rolling Current** will push all bubbles one spot to the west
+
+    Stand in a spot where there will be no bubble after Rolling Current resolves
+</Trigger>
+
+## Firearms
+
+<Trigger color="orange" type="on cast" trigger="Mirror Maneuver">
+    Stand directly opposite the orb that the boss will hit after bouncing off mirror(s)
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Ancient Artillery/Emergent Artillery">
+    Stand on tile that is not in cardinal direction of a glowing tile
+</Trigger>
+
+## Maulskull
+
+<Trigger color="orange" type="on cast" trigger="Stonecarver ">
+    Stand on the left or right of the platform depending on which fist of the boss is glowing, then move to the other side after the fist slams down (half room cleaves)
+</Trigger>
+
+<Trigger color="blue" type="on" trigger="Blue knockback circle">
+    Position to prevent getting knocked off the platform by powerful knockback
+
+    <Trigger type="if" trigger="Stack marker">
+        Ensure you will remain stacked after the knockback
+    </Trigger>
+
+    You will be able to move to resolve spread AoEs before they resolve, so don't worry about them
+</Trigger>
