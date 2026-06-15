@@ -1,0 +1,38 @@
+export const meta = {
+    title: `Vanguard`,
+    type: 'dungeon',
+    difficulty: 'normal',
+    alias: ['vanguard commander r8', 'protector', 'zander the snakeskinner']
+}
+
+## Vanguard Commander R8
+
+<Trigger color="orange" type="on cast" trigger="Enhanced Mobility">
+    Move to avoid boss path **and** his *energy blade*
+
+    If energy blade will point inwards, move to the corners
+
+    If energy blade will point outwards, move to the center
+</Trigger>
+
+## Protector
+
+<Trigger color="purple" type="on debuff" trigger="Motion Sensor/Acceleration Bomb">
+    Ensure that you are stationary when the debuff expires
+</Trigger>
+
+## Zander the Snakeskinner
+
+<Trigger color="orange" type="on cast" trigger="Soulbane Saber">
+    Dodge half-room cleave from initial line
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Syntheslither">
+    Start 'inside' first curve of line indicator, then stay behind boss
+</Trigger>
+
+<Trigger color="orange" type="on cast" trigger="Slitherbane Fore/Rearguard">
+    Dodge <Orange>**Soulbane Saber**</Orange> half-room cleaves
+
+    Also dodge late-telegraphed half-room cleaves in front or behind boss depending on attack name
+</Trigger>
